@@ -1,54 +1,171 @@
-
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>İletişim</title>
+  <meta name="description" content="Contact Muhammet Emin Balmuk for data science, AI, and analytics collaboration opportunities.">
+  <title>Contact | Muhammet Emin Balmuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <header>
-    <h1>İletişim</h1>
-    <p>Benimle iletişime geçebileceğiniz bilgiler</p>
+  <div class="page-bg" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Home">
+      <span class="brand-avatar" aria-hidden="true">
+        <img src="images/profil.jpg" alt="Muhammet Emin Balmuk">
+      </span>
+      <span class="brand-name">Muhammet Emin Balmuk</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#projects">Projects</a>
+      <a class="active" href="contact.html">Contact</a>
+    </nav>
+    <button class="lang-toggle" type="button" aria-label="Switch language" title="Switch language"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">EN</span></button>
   </header>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Ana Sayfa</a></li>
-      <li><a href="about.html">Hakkımda</a></li>
-      <li><a href="interests.html">İlgi Alanlarım</a></li>
-      <li><a href="contact.html">İletişim</a></li>
-    </ul>
-  </nav>
-
   <main>
-    <section>
-      <h2>İletişim Bilgilerim</h2>
-      <ul>
-        <li>📧 E-posta: <a href="mailto:eminblmk@gmail.com">eminblmk@gmail.com</a></li>
-        <li>📱 Telefon: <a href="tel:+905333656944">+90 533 365 69 44</a></li>
-        <li>💻 GitHub: <a href="https://github.com/eminbalmuk" target="_blank" rel="noopener noreferrer">GitHub Profilim</a></li>
-        <li>🔗 LinkedIn: <a href="https://www.linkedin.com/in/eminbalmuk/" target="_blank" rel="noopener noreferrer">LinkedIn Profilim</a></li>
+    <section class="hero about-hero reveal">
+      <p class="eyebrow">Contact</p>
+      <h1>Open for Internship and Project Collaboration</h1>
+      <p class="lead">
+        I'm currently open to internship, junior-level, and project-based collaborations in data science,
+        AI engineering, and analytics. I do my best work in teams where technical decisions are tied to
+        real outcomes, clear ownership, and practical delivery.
+      </p>
+      <ul class="quick-stats">
+        <li>
+          <strong>Fast Communication</strong>
+          <span>I usually respond within one business day for relevant collaboration and project messages.</span>
+        </li>
+        <li>
+          <strong>Flexible Collaboration</strong>
+          <span>Open to remote collaboration and hybrid opportunities based in Istanbul.</span>
+        </li>
+        <li>
+          <strong>Technical Focus</strong>
+          <span>Data science workflows, ML-powered applications, and business intelligence reporting.</span>
+        </li>
+        <li>
+          <strong>Multilingual Communication</strong>
+          <span>English (B2-C1), Turkish (native), and German (B1) for cross-team communication.</span>
+        </li>
       </ul>
     </section>
 
-    <section>
-      <h2>Sık Sorulan Sorular</h2>
-
-      <h3>Spesifik olarak en çok ilgilendiğin alan nedir?</h3>
-      <p>En çok quantitative trading ve finansal veri analizi alanı ile ilgilenmekteyim.</p>
-
-      <h3>Projelerde iş birliğine açık mısınız?</h3>
-      <p>Evet, özellikle eğitim ve açık kaynak projelerinde iş birliklerine açığım.</p>
+    <section class="section contact reveal">
+      <div class="section-head">
+        <p class="eyebrow">Channels</p>
+        <h2>Direct Contact Information</h2>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:eminblmk@gmail.com">
+          <span>Email</span>
+          <strong>eminblmk@gmail.com</strong>
+        </a>
+        <a class="contact-item" href="tel:+905333656944">
+          <span>Phone</span>
+          <strong>+90 533 365 69 44</strong>
+        </a>
+        <a class="contact-item" href="https://github.com/eminbalmuk" target="_blank" rel="noopener noreferrer">
+          <span>GitHub</span>
+          <strong>github.com/eminbalmuk</strong>
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/eminbalmuk/" target="_blank" rel="noopener noreferrer">
+          <span>LinkedIn</span>
+          <strong>linkedin.com/in/eminbalmuk</strong>
+        </a>
+      </div>
     </section>
 
-    <p><a href="index.html">&larr; Ana sayfaya geri dön</a></p>
+    <section class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Collaboration</p>
+        <h2>Areas I Can Contribute To</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>Data Science and Predictive Modeling</h3>
+          <p>I support data analysis and forecasting tasks from exploration to model evaluation and interpretation.</p>
+          <ul>
+            <li>High-volume dataset analysis and feature-driven experimentation</li>
+            <li>Model comparison with decision-focused reporting outputs</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>AI-Powered Product Prototypes</h3>
+          <p>I contribute to MVP-level AI products where model behavior and user value must align early.</p>
+          <ul>
+            <li>Rapid prototyping for ML-backed mobile or web applications</li>
+            <li>Clear role division across backend, frontend, and model workflows</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Business Intelligence Workflows</h3>
+          <p>I help translate technical findings into actionable analytics outputs for business-facing decisions.</p>
+          <ul>
+            <li>Metric-based reporting and insight communication</li>
+            <li>Structured analysis aligned with operational priorities</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Backend and Real-Time Components</h3>
+          <p>I can support backend modules and real-time integrations for data-rich applications.</p>
+          <ul>
+            <li>Node.js services and event-based communication setup</li>
+            <li>API integration and data flow reliability improvements</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="timeline">
+        <article class="role-card">
+          <p class="timeline-date">Scope</p>
+          <h3>Which type of projects fit best?</h3>
+          <p>Data-driven products, analytics initiatives, and practical AI systems with measurable outcomes fit best.</p>
+        </article>
+        <article class="role-card">
+          <p class="timeline-date">Availability</p>
+          <h3>Are you open to part-time internship roles?</h3>
+          <p>Yes. I am open to internship roles and project-based collaboration with clear technical scope.</p>
+        </article>
+        <article class="role-card">
+          <p class="timeline-date">Team Style</p>
+          <h3>How do you prefer to work?</h3>
+          <p>I prefer structured teamwork with explicit ownership, transparent communication, and delivery milestones.</p>
+        </article>
+        <article class="role-card">
+          <p class="timeline-date">Start</p>
+          <h3>How should we begin?</h3>
+          <p>Send a short summary of the project goal, expected timeline, and role expectations through email or LinkedIn.</p>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <hr>
-
-  <footer>
-    <p>&copy; 2026 Muhammet Emin Balmuk</p>
+  <footer class="site-footer">
+    <p>&copy; 2026 Muhammet Emin Balmuk. All rights reserved.</p>
   </footer>
+
+  <button class="to-top" type="button" aria-label="Back to top">Top</button>
+
+  <script src="scripts/language.js" defer></script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>

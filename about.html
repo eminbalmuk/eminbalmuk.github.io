@@ -1,55 +1,189 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hakkımda</title>
+  <meta name="description" content="Detailed profile of Muhammet Emin Balmuk, including education, experience, and certifications.">
+  <title>About | Muhammet Emin Balmuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <header>
-    <h1>Hakkımda</h1>
+  <div class="page-bg" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Home">
+      <span class="brand-avatar" aria-hidden="true">
+        <img src="images/profil.jpg" alt="Muhammet Emin Balmuk">
+      </span>
+      <span class="brand-name">Muhammet Emin Balmuk</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+      <a href="index.html">Home</a>
+      <a class="active" href="about.html">About</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="lang-toggle" type="button" aria-label="Switch language" title="Switch language"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">EN</span></button>
   </header>
-
   <main>
-    <p>
-      Merhaba, ben Emin. Yazılım geliştirmeye meraklı bir öğrenciyim ve özellikle veri bilimi, yapay zeka makine öğrenmesi
-      üzerine çalışıyorum. Düzenli olarak yeni konular öğrenerek kendimi geliştirmeyi hedefliyorum.
-    </p>
-
-    <p>
-      Proje geliştirirken <strong>temiz kod</strong>, anlaşılır yapı ve kullanıcı deneyimi benim için önemlidir.
-      Bu süreçte farklı araçları denemeyi seviyor, öğrendiklerimi küçük projelerle pekiştiriyorum.
-    </p>
-
-    <p>
-      Uzun vadede <em>nitelikli ve faydalı ürünler</em> geliştiren bir yazılım geliştirici olmak istiyorum.
-      Disiplinli çalışma ve sürekli öğrenme yaklaşımını ön planda tutuyorum.
-    </p>
-
-    <blockquote>
-      "Küçük ama istikrarlı adımlar, büyük hedeflere ulaşmanın en güvenilir yoludur."
-    </blockquote>
-
-    <section>
-      <h2>Zaman Çizelgesi</h2>
-      <h3>Eğitim</h3>
-      <ul>
-        <li>Marmara Üniversitesi - Bilgisayar Mühendisliği</li>
-      </ul>
-
-      <h3>Hedefler</h3>
-      <ul>
-        <li>AI / ML Alanlarında Uzmanlaşmak</li>
-        <li>Portfolyoya düzenli olarak yeni projeler eklemek</li>
-        <li>Takım çalışmasına dayalı profesyonel projelerde yer almak</li>
-      </ul>
+    <section class="hero about-hero reveal">
+      <p class="eyebrow">About</p>
+      <h1>Data Scientist and ML/AI Engineer Candidate</h1>
+      <p class="lead">
+        I study Computer Engineering and spend most of my time building practical data science and AI projects.
+        After completing an 8-month Google AI & Technology Academy program, I started focusing on production-minded
+        analytical systems where model quality, reliable data flow, and real business value go hand in hand.
+      </p>
+    </section>
+    <section class="section reveal">
+      <div class="fact-strip">
+        <article>
+          <h3>Marmara University</h3>
+          <p>B.Sc. in Computer Engineering (3rd year), with continuous project execution beyond coursework</p>
+          <span>October 2023 - Present</span>
+        </article>
+        <article>
+          <h3>Google AI & Technology Academy</h3>
+          <p>8-month intensive data science program with Datathon and bootcamp delivery outcomes</p>
+          <span>December 2024 - August 2025</span>
+        </article>
+        <article>
+          <h3>Shell Future Talent</h3>
+          <p>Business Intelligence Program participant focused on strategic analytics and decision support</p>
+          <span>February 2026 - Present</span>
+        </article>
+        <article>
+          <h3>GDG Marmara</h3>
+          <p>Project Developer Team Core Member contributing to scoped delivery and technical collaboration</p>
+          <span>January 2026 - Present</span>
+        </article>
+      </div>
+    </section>
+    <section class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Journey</p>
+        <h2>Education and Growth Timeline</h2>
+      </div>
+      <div class="timeline">
+        <article class="role-card">
+          <p class="timeline-date">2019 - 2023</p>
+          <h3>Bahcelievler Anatolian High School (German)</h3>
+          <p>
+            Built disciplined study habits and analytical thinking through a language-intensive curriculum.
+            This period also formed the communication discipline that now supports my technical collaboration.
+          </p>
+        </article>
+        <article class="role-card">
+          <p class="timeline-date">October 2023 - Present</p>
+          <h3>Marmara University</h3>
+          <p class="role-title">B.Sc. in Computer Engineering</p>
+          <p>
+            Strengthened engineering fundamentals in software development, algorithms, and system thinking,
+            while consistently converting theoretical knowledge into end-to-end project work including
+            backend architecture, real-time systems, and AI-supported applications.
+          </p>
+        </article>
+        <article class="role-card">
+          <p class="timeline-date">2025</p>
+          <h3>Google AI & Technology Academy</h3>
+          <p class="role-title">Graduation and Bootcamp Finalist Achievement</p>
+          <p>
+            Intensive training in data analytics, statistics, and machine learning with hands-on modeling,
+            insight generation, and decision-oriented communication. During this period, I delivered
+            high-volume Datathon analysis (210,000 rows) and contributed to a bootcamp product ranked
+            top 3 among 235 teams.
+          </p>
+        </article>
+      </div>
+    </section>
+    <section class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Approach</p>
+        <h2>How I Work</h2>
+      </div>
+      <div class="focus-grid">
+        <article>
+          <h3>I Start with a Clear Problem Definition</h3>
+          <p>Before writing code, I make sure the objective, success metrics, and constraints are clear.</p>
+        </article>
+        <article>
+          <h3>I Track Results with Real Metrics</h3>
+          <p>I evaluate outcomes through accuracy, latency, scalability, and maintainability, not just one score.</p>
+        </article>
+        <article>
+          <h3>I Work with Delivery Discipline</h3>
+          <p>In team projects, I care about shared ownership, clear communication, and hitting delivery milestones.</p>
+        </article>
+        <article>
+          <h3>I Keep Learning Through Practice</h3>
+          <p>I improve through certifications, experimentation, and personal projects that test ideas in realistic conditions.</p>
+        </article>
+      </div>
+    </section>
+    <section class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">International Profile</p>
+        <h2>Languages and Certificate Highlights</h2>
+      </div>
+      <div class="about-columns">
+        <article class="info-card">
+          <h3>Language Proficiency</h3>
+          <ul>
+            <li>English: B2-C1 (Upper Intermediate), active working language for documentation and technical communication</li>
+            <li>German: B1 (Intermediate), supported by Deutsches Sprachdiplom background</li>
+            <li>Deutsches Sprachdiplom 1 (2022)</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Featured Certificates</h3>
+          <ul>
+            <li>Google Advanced Data Analytics (Coursera, 2025)</li>
+            <li>Foundations of Data Science (Google, 2025)</li>
+            <li>The Power of Statistics (Google, 2025)</li>
+            <li>Foundations of Project Management (Google, 2025)</li>
+            <li>Google AI and Technology Academy Graduation (2025)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="section contact reveal">
+      <div class="section-head">
+        <p class="eyebrow">Contact</p>
+        <h2>Let Us Talk About Your Next Idea</h2>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:eminblmk@gmail.com">
+          <span>Email</span>
+          <strong>eminblmk@gmail.com</strong>
+        </a>
+        <a class="contact-item" href="tel:+905333656944">
+          <span>Phone</span>
+          <strong>+90 533 365 69 44</strong>
+        </a>
+        <a class="contact-item" href="https://github.com/eminbalmuk" target="_blank" rel="noopener noreferrer">
+          <span>GitHub</span>
+          <strong>github.com/eminbalmuk</strong>
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/eminbalmuk/" target="_blank" rel="noopener noreferrer">
+          <span>LinkedIn</span>
+          <strong>linkedin.com/in/eminbalmuk</strong>
+        </a>
+      </div>
     </section>
   </main>
-
-  <hr>
-
-  <footer>
-    <p>&copy; 2026 Web Programlama Dersi</p>
+  <footer class="site-footer">
+    <p>&copy; 2026 Muhammet Emin Balmuk. All rights reserved.</p>
   </footer>
+  <button class="to-top" type="button" aria-label="Back to top">Top</button>
+  <script src="scripts/language.js" defer></script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>

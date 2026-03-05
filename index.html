@@ -1,68 +1,258 @@
-﻿<!DOCTYPE html>
-<html lang="tr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ana Sayfa</title>
+  <meta name="description" content="Muhammet Emin Balmuk - Data Science, AI, and software engineering portfolio.">
+  <title>Muhammet Emin Balmuk | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <header>
-    <h1>Muhammet Emin Balmuk</h1>
-    <p>Kişisel web siteme hoş geldiniz.</p>
+  <div class="page-bg" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Home">
+      <span class="brand-avatar" aria-hidden="true">
+        <img src="images/profil.jpg" alt="Muhammet Emin Balmuk">
+      </span>
+      <span class="brand-name">Muhammet Emin Balmuk</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="lang-toggle" type="button" aria-label="Switch language" title="Switch language"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">EN</span></button>
   </header>
-
-  <nav>
-    <ul>
-      <li><a href="index.html">Ana Sayfa</a></li>
-      <li><a href="about.html">Hakkımda</a></li>
-      <li><a href="interests.html">İlgi Alanlarım</a></li>
-      <li><a href="contact.html">İletişim</a></li>
-    </ul>
-  </nav>
-
   <main>
-    <h2>Hoş Geldiniz</h2>
-    <p>
-      Bu web sitesi, Web Programlama dersi kapsamında hazırlanmış
-      <strong>örnek bir kişisel tanıtım sayfasıdır.</strong>
-      Amaç, HTML'in temel etiketlerini ve <em>sayfa yapısını</em> öğrenmektir.
-    </p>
-    <p>Daha fazla bilgi için <em>Hakkımda</em> sayfasını ziyaret edebilirsiniz.</p>
-
-    <section>
-      <h2>Hızlı Bilgiler</h2>
-      <ul>
-        <li>Üniversite: Marmara Üniversitesi</li>
-        <li>Bölüm: Bilgisayar Mühendisliği</li>
-        <li>İlgi Alanı: Veri Bilimi / Makine Öğrenmesi</li>
+    <section class="hero reveal">
+      <p class="eyebrow">Computer Engineering Student | Data Science & AI</p>
+      <h1>Muhammet Emin Balmuk</h1>
+      <p class="lead">
+        I'm a third-year Computer Engineering student at Marmara University. After completing an intensive
+        8-month Data Science program at Google AI & Technology Academy, I started focusing on practical AI
+        and analytics projects where model quality, reliable data flow, and measurable impact all matter.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="about.html">About Me</a>
+      </div>
+      <ul class="quick-stats">
+        <li>
+          <strong>Google AI Academy Program</strong>
+          <span>Completed an 8-month Data Science trainee program with hands-on modeling, analytics, and project delivery (December 2024 - August 2025)</span>
+        </li>
+        <li>
+          <strong>Bootcamp Finalist Achievement</strong>
+          <span>Our AI-integrated health app ranked in the top 3 among 235 teams in the bootcamp challenge</span>
+        </li>
+        <li>
+          <strong>Large-Scale Datathon Delivery</strong>
+          <span>Built analysis workflows on 210,000 rows and delivered high-accuracy predictions on a new 56,000-row dataset</span>
+        </li>
+        <li>
+          <strong>Real-Time Crypto Scanner</strong>
+          <span>Developed a multi-asset architecture that scans 200+ assets in under 2 minutes and tracks active signals in near real time</span>
+        </li>
       </ul>
     </section>
-
-    <section>
-      <h2>Öğrenme Hedeflerim</h2>
-      <ol>
-        <li>HTML temellerini öğrenmek</li>
-        <li>CSS ile sayfa tasarlamak</li>
-        <li>JavaScript ile etkileşim eklemek</li>
-        <li>ASP.NET Core ile dinamik site geliştirmek</li>
-      </ol>
+    <section id="experience" class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Experience</p>
+        <h2>Academy, Community, and Program Experience</h2>
+      </div>
+      <div class="timeline">
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/yzta.png" alt="Google AI and Technology Academy">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">December 2024 - August 2025</p>
+              <h3>Google AI and Technology Academy</h3>
+              <p class="role-title">Data Science Trainee</p>
+            </div>
+          </div>
+          <p>
+            Focused on data science, statistics, and machine learning workflows with a strong emphasis on
+            model validation and business-facing interpretation. Took active responsibility in Datathon and
+            bootcamp projects across high-volume data analysis, model experimentation, and practical output
+            delivery under time and quality constraints.
+          </p>
+        </article>
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/shell.png" alt="Shell">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">February 2026 - Present</p>
+              <h3>Shell <span class="role-subbrand">Future Talent</span></h3>
+              <p class="role-title">Business Intelligence Program | Strategic Analytics Track</p>
+            </div>
+          </div>
+          <p>
+            Strengthening business intelligence capabilities by combining analytical rigor with reporting
+            clarity and decision-support framing. The program reinforces how technical outputs should map to
+            measurable operational value, not just model performance.
+          </p>
+        </article>
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/gdg.png" alt="GDG Marmara">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">January 2026 - Present</p>
+              <h3>GDG Marmara</h3>
+              <p class="role-title">Project Developer Team - Core Member</p>
+            </div>
+          </div>
+          <p>
+            Contributing to community-driven project execution as a core member through structured
+            coordination, scoped delivery planning, and sustainable technical contribution. The role supports
+            both engineering depth and cross-team collaboration discipline.
+          </p>
+        </article>
+      </div>
     </section>
-
-    <section>
-      <h2>Faydalı Bağlantılar</h2>
-      <p>Aşağıdaki kaynaklar web geliştirme öğrenirken faydalı olabilir:</p>
-      <ul>
-        <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li>
-        <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools</a></li>
-        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+    <section id="projects" class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Portfolio</p>
+        <h2>Featured Projects</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>Crypto Analysis & Trading Bot</h3>
+          <p>
+            A Python-based high-performance algorithmic trading engine that scans 200+ crypto assets
+            in under 2 minutes and generates real-time signals via Telegram.
+          </p>
+          <ul>
+            <li>Strategy architecture targeting stable 66% win rate and 1:2.5 risk-reward profile</li>
+            <li>Automated ML pipeline with LightGBM, CatBoost, and TabNet</li>
+            <li>Custom labeling workflow with Google Sheets API and MongoDB-backed logging</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Datathon Competition</h3>
+          <p>
+            Team-based data analysis, visualization, and price prediction during Google AI & Technology
+            Academy Datathon.
+          </p>
+          <ul>
+            <li>Insight extraction on a 210,000-row dataset using Matplotlib and Seaborn</li>
+            <li>Model experimentation with LightGBM, Random Forest, and XGBoost</li>
+            <li>High-accuracy forecasting on a new 56,000-row evaluation dataset</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>AI-Integrated Health App</h3>
+          <p>
+            Mobile app for pre-diagnosis support in cognitive disorders such as hyperactivity,
+            dementia, and autism, developed in a 5-person team.
+          </p>
+          <ul>
+            <li>Ranked in the top 3 among 235 teams in the bootcamp challenge</li>
+            <li>Python backend, Dart frontend, Firebase operations, and REST API integration</li>
+            <li>Voice pronunciation test module and key security hardening tasks</li>
+          </ul>
+          <a href="https://github.com/BBBeyza/YZTA_YapayZeka_Grup-132" target="_blank" rel="noopener noreferrer">Project link</a>
+        </article>
+        <article class="project-card">
+          <h3>Real-Time Fire Detection System</h3>
+          <p>
+            YOLO11-based real-time fire and smoke detection system trained on a 95,000-image dataset.
+          </p>
+          <ul>
+            <li>82.8% smoke detection and 79.6% fire detection accuracy</li>
+            <li>Runs on both live feed and recorded video with bounding-box visualization</li>
+            <li>Strong recognition performance on black-and-white footage</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Real-Time Chat Application</h3>
+          <p>
+            Team project delivering a real-time messaging platform. I handled Node.js backend development
+            and Socket.io connection orchestration.
+          </p>
+          <ul>
+            <li>Built with React, Node.js, MongoDB, and Socket.io</li>
+            <li>Media storage integration with Cloudinary</li>
+            <li>Scalable real-time session and event management approach</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Energy Fault Response Simulation</h3>
+          <p>
+            Simulation of fault detection and response for potential large-scale Istanbul power outage scenarios.
+          </p>
+          <ul>
+            <li>Developed with a 4-person team using Java (Spring Boot), JavaScript, and HTML</li>
+            <li>Owned full UI design and supported backend integration</li>
+            <li>Applied data structures and algorithms for outage response modeling</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section id="certificates" class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Certificates</p>
+        <h2>Learning Journey</h2>
+      </div>
+      <ul class="certificate-list">
+        <li><span>2025</span>Google AI and Technology Academy Graduation Certificate</li>
+        <li><span>2025</span>Bootcamp Finalist Certificate of Achievement (Google AI & Technology Academy)</li>
+        <li><span>2025</span>Google Advanced Data Analytics (Coursera)</li>
+        <li><span>2025</span>Foundations of Data Science (Google)</li>
+        <li><span>2025</span>The Nuts and Bolts of Machine Learning (Google)</li>
+        <li><span>2025</span>Regression Analysis: Simplify Complex Data Relationships (Google)</li>
+        <li><span>2025</span>Go Beyond the Numbers: Translate Data into Insights (Google)</li>
+        <li><span>2025</span>The Power of Statistics (Google)</li>
+        <li><span>2025</span>Get Started with Python (Google)</li>
+        <li><span>2025</span>Foundations of Project Management (Google)</li>
+        <li><span>2022</span>Deutsches Sprachdiplom 1 - Kultusministerkonferenz</li>
       </ul>
+    </section>
+    <section id="contact" class="section contact reveal">
+      <div class="section-head">
+        <p class="eyebrow">Contact</p>
+        <h2>Let Us Connect for New Projects and Collaborations</h2>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:eminblmk@gmail.com">
+          <span>Email</span>
+          <strong>eminblmk@gmail.com</strong>
+        </a>
+        <a class="contact-item" href="tel:+905333656944">
+          <span>Phone</span>
+          <strong>+90 533 365 69 44</strong>
+        </a>
+        <a class="contact-item" href="https://github.com/eminbalmuk" target="_blank" rel="noopener noreferrer">
+          <span>GitHub</span>
+          <strong>github.com/eminbalmuk</strong>
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/eminbalmuk/" target="_blank" rel="noopener noreferrer">
+          <span>LinkedIn</span>
+          <strong>linkedin.com/in/eminbalmuk</strong>
+        </a>
+      </div>
     </section>
   </main>
-
-  <hr>
-
-  <footer>
-    <p>&copy; 2026 Muhammet Emin Balmuk | Web Programlama Dersi</p>
+  <footer class="site-footer">
+    <p>&copy; 2026 Muhammet Emin Balmuk. All rights reserved.</p>
   </footer>
+  <button class="to-top" type="button" aria-label="Back to top">Top</button>
+  <script src="scripts/language.js" defer></script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>
