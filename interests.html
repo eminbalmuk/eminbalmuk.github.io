@@ -1,70 +1,158 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>İlgi Alanlarım</title>
+  <meta name="description" content="Technical interests and learning roadmap of Muhammet Emin Balmuk.">
+  <title>Interests | Muhammet Emin Balmuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <header>
-    <h1>İlgi Alanlarım</h1>
-    <p>Teknoloji ve kişisel ilgi alanlarım</p>
+  <div class="page-bg" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Home">
+      <span class="brand-avatar" aria-hidden="true">
+        <img src="images/profil.jpg" alt="Muhammet Emin Balmuk">
+      </span>
+      <span class="brand-name">Muhammet Emin Balmuk</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a class="active" href="interests.html">Interests</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="lang-toggle" type="button" aria-label="Switch language" title="Switch language"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">EN</span></button>
   </header>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Ana Sayfa</a></li>
-      <li><a href="about.html">Hakkımda</a></li>
-      <li><a href="interests.html">İlgi Alanlarım</a></li>
-      <li><a href="contact.html">İletişim</a></li>
-    </ul>
-  </nav>
-
   <main>
-    <section>
-      <h2>Teknoloji Alanındaki İlgi Alanlarım</h2>
-      <ul>
-        <li>Veri Bilimi</li>
-        <li>Yapay zekâ</li>
-        <li>Makine Öğrenmesi</li>
+    <section class="hero reveal">
+      <p class="eyebrow">Interests</p>
+      <h1>Technical Directions I Build Around</h1>
+      <p class="lead">
+        I enjoy building practical systems where data, machine learning, and software engineering work
+        together. I'm especially motivated by projects that need both strong analytical thinking and
+        solid implementation.
+      </p>
+      <ul class="quick-stats">
         <li>
-          Öğrenmek istediğim teknolojiler
-          <ul>
-            <li>React</li>
-            <li>ASP.NET Core</li>
-            <li>Flutter</li>
-          </ul>
+          <strong>What I Like Building Most</strong>
+          <span>Data-driven decision systems and AI-powered products with clear real-world value.</span>
+        </li>
+        <li>
+          <strong>Applied Focus Areas</strong>
+          <span>Predictive modeling, computer vision use cases, and real-time event pipelines.</span>
+        </li>
+        <li>
+          <strong>How I Approach Projects</strong>
+          <span>I prefer end-to-end delivery from analysis and modeling to integration and monitoring.</span>
+        </li>
+        <li>
+          <strong>How I Keep Improving</strong>
+          <span>I learn through structured courses, hands-on competitions, and iterative personal builds.</span>
         </li>
       </ul>
     </section>
 
-    <section>
-      <h2>Günlük Çalışma Rutinim</h2>
-      <ol>
-        <li>Ders materyallerini gözden geçirmek</li>
-        <li>Kodlama pratiği yapmak</li>
-        <li>Yeni teknolojileri araştırmak</li>
-        <li>Proje geliştirmek</li>
-      </ol>
+    <section class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Core Areas</p>
+        <h2>What I Actively Explore</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>Applied Data Science</h3>
+          <p>I enjoy uncovering structure in noisy data and translating analysis into concrete recommendations.</p>
+        </article>
+        <article class="project-card">
+          <h3>Machine Learning Systems</h3>
+          <p>I work on model workflows that include feature design, validation discipline, and practical deployment paths.</p>
+        </article>
+        <article class="project-card">
+          <h3>Quantitative Trading Logic</h3>
+          <p>I enjoy strategy research, signal quality analysis, and automation pipelines for financial time series.</p>
+        </article>
+        <article class="project-card">
+          <h3>Computer Vision for Safety</h3>
+          <p>I work on vision-based detection scenarios where real-time inference and reliability matter.</p>
+        </article>
+        <article class="project-card">
+          <h3>Real-Time Application Design</h3>
+          <p>I explore event-driven systems that require low-latency communication and continuous state tracking.</p>
+        </article>
+        <article class="project-card">
+          <h3>Cross-Functional Product Thinking</h3>
+          <p>I value building products where technical quality aligns with user needs and business constraints.</p>
+        </article>
+      </div>
     </section>
 
-    <section>
-      <h2>Web Teknolojileri Sözlüğü</h2>
-      <dl>
-        <dt>HTML</dt>
-        <dd>Web sayfalarının iskeletini oluşturan işaretleme dilidir.</dd>
-        <dt>CSS</dt>
-        <dd>Web sayfalarının görsel tasarımını düzenlemek için kullanılır.</dd>
-        <dt>JavaScript</dt>
-        <dd>Web sayfalarına etkileşim kazandıran programlama dilidir.</dd>
-      </dl>
+    <section class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Routine</p>
+        <h2>How I Keep Learning</h2>
+      </div>
+      <div class="timeline">
+        <article class="role-card">
+          <p class="timeline-date">Daily</p>
+          <h3>Hands-On Implementation</h3>
+          <p>I reserve focused time for coding, debugging, and small experiment loops to keep technical fluency high.</p>
+        </article>
+        <article class="role-card">
+          <p class="timeline-date">Weekly</p>
+          <h3>Review and Iteration</h3>
+          <p>I revisit project assumptions, compare model outcomes, and refine design decisions based on measurable results.</p>
+        </article>
+        <article class="role-card">
+          <p class="timeline-date">Continuous</p>
+          <h3>Structured Upskilling</h3>
+          <p>I reinforce fundamentals through certificate programs and then operationalize them in project scenarios.</p>
+        </article>
+      </div>
     </section>
 
-    <p><a href="index.html">&larr; Ana sayfaya geri dön</a></p>
+    <section class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Roadmap</p>
+        <h2>Near-Term Exploration Plan</h2>
+      </div>
+      <div class="focus-grid">
+        <article>
+          <h3>React-Based Interfaces</h3>
+          <p>Strengthening frontend architecture choices for data-rich dashboards and interactive analytics views.</p>
+        </article>
+        <article>
+          <h3>ASP.NET Core Services</h3>
+          <p>Exploring enterprise-style backend patterns for scalable API design and service reliability.</p>
+        </article>
+        <article>
+          <h3>Flutter Prototypes</h3>
+          <p>Building mobile-first proof-of-concept products that connect AI features to practical user flows.</p>
+        </article>
+        <article>
+          <h3>MLOps-Oriented Workflows</h3>
+          <p>Improving versioning, monitoring, and reproducibility practices for sustainable model lifecycle management.</p>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Muhammet Emin Balmuk</p>
+  <footer class="site-footer">
+    <p>&copy; 2026 Muhammet Emin Balmuk. All rights reserved.</p>
   </footer>
+
+  <button class="to-top" type="button" aria-label="Back to top">Top</button>
+
+  <script src="scripts/language.js" defer></script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>
