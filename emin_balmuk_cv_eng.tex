@@ -1,0 +1,212 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+
+% Show first and last name with the same weight for a more balanced title.
+\renewcommand*{\namefont}{\fontsize{30}{32}\mdseries\upshape}
+\definecolor{softaccent}{RGB}{77, 136, 204}
+\newcommand{\company}[1]{\textcolor{softaccent}{\textbf{#1}}}
+\newcommand{\metric}[1]{\textcolor{softaccent}{\textbf{#1}}}
+\let\oldsection\section
+\renewcommand{\section}[1]{%
+  \par\vspace{0.35em}%
+  \noindent\color{black}\rule{\textwidth}{0.5pt}%
+  \par\vspace{0.45em}%
+  \oldsection{#1}%
+  \vspace{0.25em}%
+}
+\let\oldcventry\cventry
+\renewcommand*{\cventry}[6]{\oldcventry{#1}{#2}{#3}{#4}{#5}{#6}\vspace{0.35em}}
+\renewcommand{\labelitemi}{{\color{black}\textbullet}}
+\newcommand{\customcvtitle}{%
+  \begin{minipage}[c]{0.74\textwidth}
+    {\namefont Muhammet Emin Balmuk\par}
+    \vspace{0.25em}
+    {\large\itshape Computer Engineering Student\par}
+    \vspace{0.6em}
+    {\small Maltepe/Istanbul, Turkey \textbar\ +90 533 365 6944 \textbar\ \href{mailto:eminblmk@gmail.com}{eminblmk@gmail.com}\par}
+    \vspace{0.2em}
+    {\small Website: \href{https://eminbalmuk.github.io}{eminbalmuk.github.io} \textbar\ LinkedIn: \href{https://www.linkedin.com/in/eminbalmuk}{eminbalmuk} \textbar\ GitHub: \href{https://github.com/eminbalmuk}{eminbalmuk}\par}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.2\textwidth}
+    \raggedleft
+    \setlength{\fboxsep}{1.5pt}%
+    \fcolorbox{gray!55}{white}{\includegraphics[width=0.93\linewidth]{photo.jpg}}
+  \end{minipage}
+  \par\vspace{0.8em}
+  \rule{\textwidth}{0.4pt}
+  \par\vspace{0.6em}
+}
+\newcommand{\stackitem}[2]{%
+  \cvitem{#1}{%
+    \parbox[c]{0.6em}{\centering{\color{gray!55}\rule{0.35pt}{1.7\baselineskip}}}%
+    \hspace{0.8em}%
+    \parbox[t]{\dimexpr\linewidth-0.6em-0.8em\relax}{#2}%
+  }%
+}
+
+\usepackage[scale=0.82, top=1.7cm, bottom=1.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{needspace}
+\setlength{\hintscolumnwidth}{2.9cm}
+\hypersetup{colorlinks=true, urlcolor=blue}
+
+% --- PERSONAL INFORMATION ---
+\name{Muhammet Emin Balmuk}
+\title{}
+\address{Maltepe/Istanbul}{Turkey}
+\phone[mobile]{+90 533 365 6944}
+\email{eminblmk@gmail.com}
+\social[linkedin]{eminbalmuk}
+\social[github]{eminbalmuk}
+
+% Kept disabled in the ATS-friendly main version.
+% You can uncomment the line below and add your own image file if needed.
+\photo[64pt][0.4pt]{photo.jpg}
+
+\begin{document}
+\customcvtitle
+\vspace{-0.4em}
+
+\section{Profile}
+Computer Engineering student at Marmara University with hands-on experience in data science, machine learning, and software development. Built a strong foundation in Python, data analysis, and predictive modeling through project-based work and the Google AI and Technology Academy. Interested in growing as a software developer and AI engineer by building practical, high-impact solutions and continuously improving through teamwork and real-world experience.
+
+\section{Education}
+\cventry{2023--2027}{B.Sc. in Computer Engineering}{Marmara University}{Istanbul}{}{Third-year student}
+\cventry{2019--2023}{High School}{Bah\c{c}elievler Anatolian High School (German)}{}{}{}
+
+\section{Experience}
+\cventry{December 2024--August 2025}{Data Science Trainee}{\company{Google AI and Technology Academy}}{Istanbul}{}{
+\begin{itemize}
+    \item Completed an intensive 8-month training program focused on applied data science, machine learning, and end-to-end project development.
+    \item Strengthened practical skills in data analysis, statistics, model evaluation, and turning real datasets into actionable insights through hands-on coursework and team-based projects.
+    \item Worked in collaborative project settings such as datathons and bootcamps, improving communication, problem-solving, and model development under time and delivery constraints.
+    \item Contributed to an AI-supported mobile application for preliminary dementia assessment during the bootcamp process, helping the team finish \metric{3rd among 205 teams}.
+\end{itemize}}
+
+\cventry{February 2026--Present}{ILERIDE Program \textbar\ Trainee}{\company{Shell}}{Istanbul}{}{
+\begin{itemize}
+    \item Participating in an ongoing development-focused program centered on structured thinking, problem framing, communication, and professional business perspective.
+    \item Building a stronger understanding of how corporate teams approach decision-making, ownership, and problem solving in complex business environments.
+    \item Applying lessons from workshops and program activities to improve analytical thinking, collaboration style, and the way I frame technical and non-technical challenges.
+\end{itemize}}
+
+\cventry{January 2026--Present}{Project Development Team \textbar\ Core Member}{\company{GDG - Google Developer Group Marmara}}{}{}{
+\begin{itemize}
+    \item Contribute as a core team member to technical project initiatives and developer-focused community activities within GDG Marmara.
+    \item Collaborate on project planning, product thinking, and execution for software-oriented community initiatives and events.
+    \item Support the team in shaping ideas into buildable projects while strengthening coordination, ownership, and community engagement skills.
+\end{itemize}}
+
+\section{Projects}
+
+\cventry{2026}{Credit Card Fraud Detection System}{Personal Project}{}{}{
+\begin{itemize}
+    \item Developed a production-ready machine learning pipeline for fraud detection using a dataset of \metric{1.04M+ transactions}.
+    \item Implemented \metric{leakage-free feature engineering} using point-in-time calculations (velocity, behavioral patterns) to prevent future data leakage.
+    \item Optimized and compared LightGBM, XGBoost, CatBoost, and Random Forest models, achieving a \metric{0.925 PR-AUC} and \metric{0.85 F1-Score}.
+    \item Addressed extreme class imbalance (\metric{0.58\% fraud}) by prioritizing Precision-Recall AUC optimization to minimize false positives in a financial context.
+    \item Built automated diagnostic tools for data distribution analysis and model performance visualization using Pandas, Matplotlib, and Seaborn.
+\end{itemize}}
+
+\cventry{2026}{TaskFlow Collaborative Kanban Platform}{Personal Project}{}{}{
+\begin{itemize}
+    \item Built a full-stack Kanban board application with \metric{Next.js}, \metric{React}, \metric{TypeScript}, \metric{Prisma}, and \metric{PostgreSQL}, focused on practical team task management.
+    \item Developed responsive dashboard and landing page flows, including drag-and-drop board interactions, due dates, multi-assignee task management, and mobile-friendly board navigation.
+    \item Implemented \metric{role-based collaboration} features such as board sharing, viewer/editor permissions, self-leave flows for invited users, and access-aware UI/route protection.
+    \item Designed and maintained API routes, database schema migrations, and state management for real-time-feeling collaborative workflows across shared boards.
+\end{itemize}}
+
+\cventry{2025}{Crypto Analysis and Trading Bot}{Personal Project}{}{}{
+\begin{itemize}
+    \item Engineered a Python-based algorithmic trading bot built on custom quantitative strategies.
+    \item Built an architecture that screens \metric{200+ crypto assets} in about \metric{2 minutes} and reached a \metric{66\% success rate} with a \metric{1:2.5 risk-reward ratio} in a real-time Telegram signal system.
+    \item Evaluated LightGBM, CatBoost, and TabNet during R\&D, then refactored the live system into a custom strategy-based architecture to reduce latency.
+    \item Processed high-volume market data with NumPy and Pandas and maintained trade logs and historical records in MongoDB.
+    \item Automated 24/7 trade lifecycle tracking through an additional ``Crypto Signal Tracker'' bot.
+\end{itemize}}
+
+\cventry{2025}{Datathon Competition}{Google AI and Technology Academy}{}{}{
+\begin{itemize}
+    \item Spearheaded the data analysis and visualization of a \metric{210,000-row dataset} within a \metric{4-person cross-functional team}.
+    \item Engineered price prediction models for a new \metric{56,000-row dataset} using LightGBM, Random Forest, and XGBoost.
+    \item Interpreted model outputs and translated complex findings into actionable visual insights with Matplotlib and Seaborn.
+\end{itemize}}
+
+\cventry{2025}{AI-Integrated Health Application}{Bootcamp Project}{}{}{
+\begin{itemize}
+    \item Developed a mobile application with a \metric{5-person team} for the preliminary assessment of cognitive conditions such as hyperactivity, dementia, and autism.
+    \item Developed the Python backend and core Dart frontend components, leading the team to rank in the \metric{top 3 among 205 competing teams}.
+    \item Architected a voice pronunciation test module in Python, managed Firebase operations, and integrated systems through REST APIs.
+    \item Optimized selects Dart screens and addressed critical security vulnerabilities.
+    \item \href{https://github.com/BBBeyza/YZTA_YapayZeka_Grup-132}{GitHub Repository}
+\end{itemize}}
+
+\cventry{2025}{Fire Detection System for Live Security Cameras}{Computer Vision}{}{}{
+\begin{itemize}
+    \item Trained a model on a dataset of \metric{95,000 images} using YOLO 11.
+    \item Reached \metric{82.8\%} smoke detection accuracy and \metric{79.6\%} fire detection accuracy, with especially strong results on black-and-white images.
+    \item Tested the system on both live camera streams and recorded video footage, marking detected regions with bounding boxes.
+\end{itemize}}
+
+\cventry{2025}{Real-Time Chat Application}{Team Project}{}{}{
+\begin{itemize}
+    \item Built a real-time messaging application with a 3-person team using HTML, CSS (Tailwind), JavaScript, React, Node.js, MongoDB, and Socket.io.
+    \item Managed Node.js backend tasks, real-time connection management with Socket.io, MongoDB workflows, and media storage with Cloudinary.
+\end{itemize}}
+
+\cventry{2024}{Automated Linux Backup System}{Personal Project}{}{}{
+\begin{itemize}
+    \item Engineered a modular \metric{Bash-based backup system} with support for both interactive TUI and fully automated headless execution modes.
+    \item Integrated a dynamic terminal-based file explorer and user interface using the \metric{dialog} library to enhance user experience.
+    \item Ensured data security through \metric{atomic scheduling via crontab}, recursive file management with find, and optimized archive compression using tar.
+    \item Implemented a centralized logging mechanism to provide end-to-end traceability and auditability of backup operations.
+\end{itemize}}
+
+\cventry{2024}{Energy Distribution and Fault Response Simulation}{Team Project}{}{}{
+\begin{itemize}
+    \item Architected a city-scale energy fault simulation using Spring Boot and JavaScript to model real-time detection and response workflows for urban power outages.
+    \item Designed the full JavaScript/HTML interface and supported backend integration for optimized outage-response workflows.
+\end{itemize}}
+
+\cventry{2024}{Personal Series/Movie Watchlist Platform}{Team Project}{}{}{
+\begin{itemize}
+    \item Developed a social watchlist application using Python (backend) and CustomTkinter (frontend) within a 3-person team.
+    \item Engineered core backend features and designed the RESTful API layer to ensure seamless communication between system components.
+\end{itemize}}
+
+\section{Technical Skills}
+\stackitem{Programming Languages}{Python, Java, JavaScript, C/C++, Dart}
+\stackitem{Backend and Web Technologies}{Node.js, Spring Boot, React, REST API, Socket.io}
+\stackitem{Machine Learning and Data Analysis}{Pandas, NumPy, LightGBM, XGBoost, CatBoost, TabNet, YOLO, CNN, Keras, Matplotlib, Seaborn}
+\stackitem{Databases and Developer Tools}{MongoDB, Firebase, SQL, MSSQL, Git, Google Sheets}
+\stackitem{Scripting and Command-Line Tools}{Bash/Shell Scripting, WSL}
+
+\section{Languages}
+\cvitemwithcomment{Turkish}{Native}{}
+\cvitemwithcomment{English}{B2}{}
+\cvitemwithcomment{German}{A2--B1}{}
+
+\section{Certificates}
+\cvitem{2026}{Artificial Intelligence Specialization Program - Foundation Training Certificate (Republic of T\"urkiye Ministry of Industry and Technology)}
+\cvitem{2026}{Introduction to Open Source License Compliance Management (The Linux Foundation)}
+\cvitem{2026}{Model Context Protocol: Advanced Topics (Anthropic)}
+\cvitem{2026}{AI Fluency: Framework \& Foundations (Anthropic)}
+\cvitem{2026}{Claude 101 (Anthropic)}
+\cvitem{2025}{Google AI and Technology Academy Graduation Certificate}
+\cvitem{2025}{Bootcamp Finalist Certificate of Achievement (Google AI \& Technology Academy)}
+\cvitem{2025}{Google Advanced Data Analytics Certificate}
+\cvitem{2025}{Foundations of Data Science (Google)}
+\cvitem{2025}{The Nuts and Bolts of Machine Learning}
+\cvitem{2025}{Regression Analysis: Simplify Complex Data Relationships (Google)}
+\cvitem{2025}{Go Beyond the Numbers: Translate Data into Insights (Google)}
+\cvitem{2025}{The Power of Statistics (Google)}
+\cvitem{2025}{Get Started with Python (Google)}
+\cvitem{2025}{Foundations of Project Management (Google)}
+\cvitem{2022}{Deutsches Sprachdiplom 1 (Kultusministerkonferenz)}
+
+\end{document}
