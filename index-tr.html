@@ -49,7 +49,7 @@
       <ul class="quick-stats">
         <li>
           <strong>Google AI Academy Süreci</strong>
-          <span>Aralık 2024 - Ağustos 2025 arasında 8 aylık Veri Bilimi stajyerlik programında modelleme, analiz ve proje teslim süreçlerinde aktif çalıştım</span>
+          <span>Aralık 2024 - Ağustos 2025 arasında 8 aylık Veri Bilimi programında modelleme, analiz ve proje teslimi süreçlerinde aktif çalıştım</span>
         </li>
         <li>
           <strong>Bootcamp'te Finalist Başarısı</strong>
@@ -57,11 +57,11 @@
         </li>
         <li>
           <strong>Büyük Ölçekli Datathon Çalışması</strong>
-          <span>210.000 satırlık veri analizi sonrası yeni 56.000 satırlık veri setinde yüksek doğruluklu tahmin akışları geliştirdim</span>
+          <span>210.000 satırlık veri analizi sonrası yeni 56.000 satırlık veri setinde yüksek doğruluklu prediction akışları geliştirdim</span>
         </li>
         <li>
           <strong>Gerçek Zamanlı Kripto Altyapısı</strong>
-          <span>200+ varlığı 2 dakikanın altında tarayan, sinyal üreten ve aktif işlemleri izleyen bir kripto tarama mimarisi geliştirdim</span>
+          <span>200+ varlığı 2 dakikanın altında tarayan, sinyal üreten ve aktif işlemleri izleyen bir crypto scanning mimarisi geliştirdim</span>
         </li>
       </ul>
     </section>
@@ -142,26 +142,38 @@
           </ul>
         </article>
         <article class="project-card">
-          <h3>Kredi Kartı Dolandırıcılık Tespit Hattı</h3>
+          <h3>Kredi Kartı Fraud Detection Hattı</h3>
           <p>
-            1.04 Milyon+ işlem içeren veri seti üzerinde geliştirilen, üretime hazır makine öğrenmesi boru hattı (pipeline).
+            1.04 Milyon+ işlem içeren veri seti üzerinde geliştirilen, production-ready makine öğrenmesi pipeline'ı.
           </p>
           <ul>
-            <li>Geleceğe sızıntıyı (leakage) önlemek için zaman odaklı özellik mühendisliği (davranışsal örüntüler) uygulandı</li>
+            <li>Data leakage'ı önlemek için point-in-time bazlı özellik mühendisliği (davranışsal örüntüler) uygulandı</li>
             <li>LightGBM, XGBoost, CatBoost ve Random Forest modelleri optimize edilerek 0.925 PR-AUC başarısı sağlandı</li>
-            <li>Aşırı sınıf dengesizliği (%0.58), Precision-Recall AUC optimizasyonu ile çözüldü</li>
+            <li>Aşırı class imbalance (%0.58), Precision-Recall AUC optimizasyonu ile çözüldü</li>
           </ul>
+          <a href="https://github.com/eminbalmuk/fraud-detection-ml" target="_blank" rel="noopener noreferrer" class="project-link">Repo Bağlantısı</a>
         </article>
         <article class="project-card">
-          <h3>TaskFlow İş Birlikçi Kanban Platformu</h3>
+          <h3>Unsolved: AI Destekli Problem Tespit Platformu</h3>
+          <p>Reddit ve App Store verilerini analiz ederek karşılanmamış müşteri ihtiyaçlarını ve pazar boşluklarını tespit eden otomatize sistem.</p>
+          <ul>
+            <li>Next.js 16 ve TypeScript ile Reddit API ve App Store RSS akışlarını tarayan veri hattı (pipeline)</li>
+            <li>Keyword tabanlı Natural Language Processing (NLP) ile müşteri duyarlılığını analiz eder</li>
+            <li>Öne çıkan pazar boşluklarını MVP adımları ve risk analizleri ile raporlayan AI analiz motoru entegrasyonu</li>
+          </ul>
+          <a href="https://github.com/eminbalmuk/Unsolved-AI" target="_blank" rel="noopener noreferrer" class="project-link">Repo Bağlantısı</a>
+        </article>
+        <article class="project-card">
+          <h3>TaskFlow Kanban Platformu</h3>
           <p>
             Ekiplerin günlük iş takibini daha düzenli ve kullanışlı hale getirmek için geliştirdiğim full-stack Kanban uygulaması.
           </p>
           <ul>
             <li>Next.js, React, TypeScript, Prisma ve PostgreSQL kullanılarak uçtan uca geliştirildi</li>
-            <li>Sürükle-bırak board deneyimi, teslim tarihleri, çoklu atama ve mobil uyumlu kullanım akışları tasarlandı</li>
-            <li>Board paylaşımı, viewer/editor yetkileri ve erişime duyarlı arayüz koruması ile rol bazlı iş birliği yapısı kuruldu</li>
+            <li>Sürükle-bırak board deneyimi, deadline takibi, multi-assignee ve mobil uyumlu kullanım akışları tasarlandı</li>
+            <li>Board paylaşımı, viewer/editor yetkileri ve erişime duyarlı UI koruması ile rol bazlı iş birliği yapısı kuruldu</li>
           </ul>
+          <a href="https://github.com/eminbalmuk/taskflow-kanban" target="_blank" rel="noopener noreferrer" class="project-link">Repo Bağlantısı</a>
         </article>
         <article class="project-card">
           <h3>Datathon Yarışması</h3>
@@ -174,11 +186,11 @@
         </article>
         <article class="project-card">
           <h3>AI Entegre Sağlık Uygulaması</h3>
-          <p>Hiperaktivite, demans ve otizm için ön değerlendirme desteği sunan mobil uygulama.</p>
+          <p>Hiperaktivite, demans ve otizm için ön teşhis desteği sunan mobil uygulama.</p>
           <ul>
             <li>205 takım arasında ilk 3'e giren bootcamp projesi</li>
             <li>Python backend, Dart frontend, Firebase ve REST API entegrasyonu</li>
-            <li>Ses telaffuz modülü ve güvenlik iyileştirmeleri</li>
+            <li>Uygulamanın backend tarafı, ses telaffuz modülü ve security iyileştirmeleri</li>
           </ul>
           <a href="https://github.com/BBBeyza/YZTA_YapayZeka_Grup-132" target="_blank" rel="noopener noreferrer">Proje bağlantısı</a>
         </article>
@@ -190,6 +202,7 @@
             <li>Canlı ve kayıtlı video üzerinde bounding-box görselleştirme</li>
             <li>Siyah-beyaz görüntülerde güçlü algılama performansı</li>
           </ul>
+          <a href="https://github.com/eminbalmuk/yolo-fire-and-smoke-detection" target="_blank" rel="noopener noreferrer" class="project-link">Repo Bağlantısı</a>
         </article>
         <article class="project-card">
           <h3>Otomatik Linux Yedekleme Sistemi</h3>
@@ -218,6 +231,15 @@
             <li>4 kişilik ekip ile Java (Spring Boot), JavaScript ve HTML geliştirmesi</li>
             <li>Uçtan uca arayüz tasarımı ve backend entegrasyon desteği</li>
             <li>Veri yapıları ve algoritmalarla arıza modelleme</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Dizi/Film Takip Platformu</h3>
+          <p>Kişisel izleme listesi yönetimi ve sosyal etkileşim odaklı masaüstü uygulaması.</p>
+          <ul>
+            <li>Python ve CustomTkinter kullanılarak geliştirilen kullanıcı dostu arayüz</li>
+            <li>RESTful API katmanı ile sistem bileşenleri arası veri iletişimi</li>
+            <li>3 kişilik ekip çalışması ile uçtan uca özellik geliştirme</li>
           </ul>
         </article>
       </div>
@@ -273,6 +295,10 @@
         <div class="contact-item">
           <span>Konum</span>
           <strong>Istanbul / Maltepe</strong>
+        </div>
+        <div class="contact-item">
+          <span>Diller</span>
+          <strong>Türkçe (Anadil), İngilizce (B2), Almanca (A2)</strong>
         </div>
         <a class="contact-item" href="https://eminbalmuk.github.io" target="_blank" rel="noopener noreferrer">
           <span>Web Sitesi</span>
