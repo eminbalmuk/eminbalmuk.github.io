@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Muhammet Emin Balmuk - Data Science, AI, and software engineering portfolio.">
+  <meta name="description" content="Muhammet Emin Balmuk - Computer Engineering student, Co-founder & CTO of Giyiver, AI Engineering Intern at Orion Innovation.">
   <title>Muhammet Emin Balmuk | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css?v=20260305-4">
+  <link rel="stylesheet" href="styles/style.css?v=20261109-1">
 </head>
 <body>
   <div class="page-bg" aria-hidden="true"></div>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Home">
       <span class="brand-avatar" aria-hidden="true">
-        <img src="images/profil.jpg" alt="Muhammet Emin Balmuk">
+        <img src="images/profil.jpeg" alt="Muhammet Emin Balmuk">
       </span>
       <span class="brand-name">Muhammet Emin Balmuk</span>
     </a>
@@ -35,12 +35,13 @@
   </header>
   <main>
     <section class="hero reveal">
-      <p class="eyebrow">Computer Engineering Student | Data Science & AI</p>
+      <p class="eyebrow">Computer Engineering Student | AI Engineering</p>
       <h1>Muhammet Emin Balmuk</h1>
       <p class="lead">
-        I'm a third-year Computer Engineering student at Marmara University. After completing an intensive
-        8-month Data Science program at Google AI & Technology Academy, I started focusing on practical AI
-        and analytics projects where model quality, reliable data flow, and measurable impact all matter.
+        I'm a Computer Engineering student at Marmara University, Co-founder &amp; CTO of Giyiver (a clothing-swap
+        startup backed by investment received through Shell ILERIDE) and an AI Engineering Intern at Orion Innovation,
+        where I build LLM, vision-language, retrieval and speech AI systems. I enjoy turning models into reliable,
+        measurable products.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#projects">View Projects</a>
@@ -48,29 +49,112 @@
       </div>
       <ul class="quick-stats">
         <li>
-          <strong>Google AI Academy Program</strong>
-          <span>Actively worked on modeling, analysis, and project delivery processes during an 8-month Data Science trainee program between December 2024 and August 2025</span>
+          <strong>Giyiver: Live Product</strong>
+          <span>Clothing-swap marketplace live at giyiverr.com, with investment received through Shell ILERIDE. I am responsible for the entire technical side in a team of 7.</span>
         </li>
         <li>
-          <strong>Bootcamp Finalist Achievement</strong>
-          <span>Ranked in the top 3 teams among 205 with our AI-integrated health application</span>
+          <strong>Retrieval Benchmarks at Orion</strong>
+          <span>Benchmarked 20+ LLMs and 10+ embedding models, reaching MRR 0.71 (requirement-to-test) and Hit@5 97.5% (test-to-code)</span>
         </li>
         <li>
-          <strong>Large-Scale Datathon Delivery</strong>
-          <span>Developed high-accuracy prediction workflows on a new 56,000-row dataset following extensive data analysis on 210,000 rows</span>
+          <strong>Real-Time Speech AI</strong>
+          <span>On-premise pipeline for live emergency calls: 6.3% WER on clean speech, 86% emotion accuracy, first words on screen in about 2 s</span>
         </li>
         <li>
-          <strong>Real-Time Crypto Infrastructure</strong>
-          <span>Developed a crypto screening architecture that scans 200+ assets in under 2 minutes, generates signals, and monitors active trades</span>
+          <strong>Bootcamp Top 3</strong>
+          <span>Finished 3rd among 205 teams with our AI-integrated health application at Google AI &amp; Technology Academy</span>
         </li>
       </ul>
     </section>
     <section id="experience" class="section reveal">
       <div class="section-head">
         <p class="eyebrow">Experience</p>
-        <h2>Academy, Community, and Program Experience</h2>
+        <h2>Startup, Industry, Academy, and Community</h2>
       </div>
       <div class="timeline">
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/giyiver.png" alt="Giyiver">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">June 2026 - Present</p>
+              <h3>Giyiver</h3>
+              <p class="role-title">Co-founder &amp; CTO</p>
+            </div>
+          </div>
+          <p>
+            Turkish clothing-swap marketplace (barter, donation, points) live at <a href="https://giyiverr.com" target="_blank" rel="noopener noreferrer">giyiverr.com</a>. Backed by investment received through Shell ILERIDE. We are a team of 7, and I am responsible for the entire technical side of the project: web, mobile, backend, infrastructure, AI, security and testing.
+          </p>
+          <ul>
+            <li><strong>AI listing autofill:</strong> a vision-language model (NVIDIA NIM, <span class="metric">Nemotron 3.5 Super VL</span>) turns uploaded photos into title, category, colour, condition and description; images are downscaled client-side and sent as validated base64, so nothing is stored before publishing.</li>
+            <li><strong>Model selection and hedged inference:</strong> benchmarked candidate VLMs on real listing photos, dropped unreliable ones, disabled reasoning mode for <span class="metric">2-10 s</span> typical latency, and added a fallback model that races the primary after 12 s (first valid answer wins, the loser is cancelled).</li>
+            <li><strong>Multimodal moderation:</strong> one VLM call checks all photos and text of a listing (real clothing, same item in every photo, consistent description); free text also passes a local profanity filter and an AI check, built to fail open and backed by database triggers.</li>
+            <li><strong>Verified-image tokens:</strong> HMAC-signed, user-bound tokens carry SHA-256 digests of the analysed images; at publish time the server re-hashes the uploaded files and skips the second VLM call only if every digest matches, saving latency and cost without trusting the client.</li>
+            <li><strong>Platform:</strong> Next.js on Cloudflare Pages with edge functions, Supabase Postgres with row-level security (<span class="metric">57</span> migrations) and server-side points escrow, an Expo/React Native app, crawler-only rendering for SEO, and <span class="metric">570+</span> automated tests including SQL tests on a real Postgres engine.</li>
+          </ul>
+        </article>
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/orion.png" alt="Orion Innovation">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">July 2026 - Present</p>
+              <h3>Orion Innovation</h3>
+              <p class="role-title">AI Engineering Intern</p>
+            </div>
+          </div>
+          <p>
+            Building LLM, retrieval and speech systems across three projects: <strong>SOSIS</strong> (Software product line Optimization for Safety-/mission-critical Industrial Systems, ITEA 4), an AI-driven test management platform; <strong>GENIUS</strong> (Generative AI for the Software Development Life Cycle), LLM-based requirement extraction; and <strong>CLEAR</strong> (Call Listener Emergency Audio Recognition), real-time audio intelligence for emergency call centers.
+          </p>
+          <ul>
+            <li><strong>SOSIS:</strong> Designed a hybrid retrieval pipeline (dense embeddings + BM25, reciprocal rank fusion, GraphRAG) with optional listwise <span class="metric">LLM reranking</span> that links requirements, tests and source code automatically.</li>
+            <li>Benchmarked <span class="metric">20+ LLMs</span> across 5 providers and <span class="metric">10+ embedding models</span> on hand-labeled gold sets with paired bootstrap confidence intervals, reaching <span class="metric">MRR 0.71</span> (requirement-to-test) and <span class="metric">Hit@5 97.5%</span> (test-to-code); wrote the study up as a research paper.</li>
+            <li>Built an LLM pipeline that turns requirements into runnable Playwright tests, grounded with retrieved code, a graph-based page selector (page@3 <span class="metric">63% &rarr; 90%</span>) and a headless-browser probe of the live UI, plus checks that feed the model its own mistakes back before the first run.</li>
+            <li>Built LLM agents that adapt tests to a product variant, run them, repair failures from the run report and review the outcome (LLM-as-a-judge); mapped requirements to variants with a hybrid embedding scorer (<span class="metric">F1 0.74</span>).</li>
+            <li>Unified OpenRouter, NVIDIA NIM, Groq and Google AI Studio behind one client with provider routing, price caps and a token-per-minute scheduler.</li>
+            <li><strong>GENIUS:</strong> Optimized the multi-stage LLM requirement-extraction pipeline by batching zone classification, query expansion and rationale generation: LLM requests per document fell from <span class="metric">95 to 9</span> (zone classification <span class="metric">107 s &rarr; 3 s</span>, now well inside Groq's rate limit), and controlling reasoning effort on GLM 5.3 Flash halved token use (<span class="metric">336K &rarr; 165K</span>).</li>
+            <li>Evaluated the extracted requirements against a hand-written ground truth (<span class="metric">12 of 18</span> items matched fully, 6 partially, none missed), and integrated GENIUS into SOSIS so that its EARS/LESS requirements and labels (ISO 25010 quality dimension, actor, classification) feed test generation and variant mapping.</li>
+            <li><strong>CLEAR:</strong> Built a streaming pipeline that runs speech recognition (Qwen3-ASR with LoRA), speaker diarization, speech emotion, stress and audio-event models on live 911/112 calls, fully on-premise on CPU.</li>
+            <li>Trained calibrated accent classifiers on Whisper encoder features and combined emotion and stress signals for distress detection (<span class="metric">AUROC 0.87</span> vs 0.71 for stress alone).</li>
+            <li>Evaluated models on public benchmarks: <span class="metric">6.3%</span> WER on clean speech, <span class="metric">86%</span> emotion accuracy (vs <span class="metric">41%</span> for the earlier approach), first words appear on screen in about <span class="metric">2 s</span>.</li>
+          </ul>
+        </article>
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/gdg.png" alt="GDG Marmara">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">January 2026 - Present</p>
+              <h3>GDG - Google Developer Group Marmara</h3>
+              <p class="role-title">AI Team Lead</p>
+            </div>
+          </div>
+          <ul>
+            <li>Lead the AI team at GDG Marmara, driving technical projects and developer-focused community activities.</li>
+            <li>Work with the team on project planning, product thinking and delivery for software projects and community events.</li>
+            <li>Help turn ideas into buildable projects while building coordination, ownership and community skills.</li>
+          </ul>
+        </article>
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/shell.png" alt="Shell">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">February 2026 - June 2026</p>
+              <h3>Shell</h3>
+              <p class="role-title">ILERIDE Program | Trainee &amp; Startup Founder</p>
+            </div>
+          </div>
+          <ul>
+            <li>Took part in Shell's ILERIDE program, which focused on structured thinking, problem framing, communication and business skills.</li>
+            <li><strong>Giyiver</strong>, the startup I co-founded and lead as CTO, <span class="metric">received investment</span> through the program.</li>
+            <li>Used what I learned in the program for Giyiver's product and technical decisions, and to explain technical work to non-technical people.</li>
+          </ul>
+        </article>
         <article class="role-card">
           <div class="role-head">
             <div class="role-logo-box">
@@ -82,46 +166,12 @@
               <p class="role-title">Data Science Trainee</p>
             </div>
           </div>
-          <p>
-            Worked on data science, statistics, and machine learning workflows, focusing particularly on
-            model validation and producing interpretable outputs for business units. Took responsibility for
-            executing projects with high-volume data analysis, model experimentation, and delivery focus
-            under quality-time pressure during Datathon and bootcamp processes.
-          </p>
-        </article>
-        <article class="role-card">
-          <div class="role-head">
-            <div class="role-logo-box">
-              <img src="images/shell.png" alt="Shell">
-            </div>
-            <div class="role-meta">
-              <p class="timeline-date">February 2026 - Present</p>
-              <h3>Shell <span class="role-subbrand">Future Talent</span></h3>
-              <p class="role-title">ILERIDE Program | Trainee</p>
-            </div>
-          </div>
-          <p>
-            Participating in an ongoing development-focused program centered on structured thinking,
-            problem framing, and professional business perspectives. Applying takeaways from sessions and
-            activities to better understand how corporate teams approach decision-making and problem solving.
-          </p>
-        </article>
-        <article class="role-card">
-          <div class="role-head">
-            <div class="role-logo-box">
-              <img src="images/gdg.png" alt="GDG Marmara">
-            </div>
-            <div class="role-meta">
-              <p class="timeline-date">January 2026 - Present</p>
-              <h3>GDG Marmara</h3>
-              <p class="role-title">Project Developer Team - Core Member</p>
-            </div>
-          </div>
-          <p>
-            Contributing to community-focused project development processes as a core team member through
-            scope planning, coordination, and production of sustainable technical outputs. This structure
-            strengthens both my engineering depth and intra-team execution discipline.
-          </p>
+          <ul>
+            <li>Completed an intensive 8-month program in applied data science, machine learning and end-to-end project development.</li>
+            <li>Learned to work with real datasets, from analysis and statistics to model evaluation and turning results into insights, through coursework and team projects.</li>
+            <li>Took part in datathons and bootcamps, building models and working in teams under tight deadlines.</li>
+            <li>Helped build an AI-supported mobile app for preliminary dementia assessment during the bootcamp, finishing <span class="metric">3rd among 205 teams</span>.</li>
+          </ul>
         </article>
       </div>
     </section>
@@ -132,154 +182,184 @@
       </div>
       <div class="project-grid">
         <article class="project-card">
+          <h3>Credit Card Fraud Detection System</h3>
+          <p>Personal Project | 2026</p>
+          <ul>
+            <li>Developed a production-ready machine learning pipeline for fraud detection using a dataset of <span class="metric">1.04M+ transactions</span>.</li>
+            <li>Implemented <span class="metric">leakage-free feature engineering</span> using point-in-time calculations (velocity, behavioral patterns) to prevent future data leakage.</li>
+            <li>Optimized and compared LightGBM, XGBoost, CatBoost, and Random Forest models, achieving a <span class="metric">0.925 PR-AUC</span> and <span class="metric">0.85 F1-Score</span>.</li>
+            <li>Addressed extreme class imbalance (<span class="metric">0.58% fraud</span>) by prioritizing Precision-Recall AUC optimization to minimize false positives in a financial context.</li>
+            <li>Built automated diagnostic tools for data distribution analysis and model performance visualization using Pandas, Matplotlib, and Seaborn.</li>
+          </ul>
+          <a href="https://github.com/eminbalmuk/fraud-detection-ml" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        </article>
+        <article class="project-card">
+          <h3>Unsolved: AI-Driven Problem Discovery Platform &amp; Automated Scraper</h3>
+          <p>Personal Project | 2026</p>
+          <ul>
+            <li>Built an automated research pipeline with <span class="metric">Next.js 16</span> and <span class="metric">TypeScript</span> that scrapes real-time customer signals from <span class="metric">Reddit API</span> and <span class="metric">App Store RSS</span> feeds to identify unaddressed needs and market gaps.</li>
+            <li>Developed a heuristic scoring engine that analyzes raw text signals using <span class="metric">keyword-based NLP</span> and sentiment weights to quantify <span class="metric">Pain Intensity</span>, <span class="metric">Frequency</span>, and <span class="metric">Willingness to Pay (WTP)</span>.</li>
+            <li>Built an ingestion layer with <span class="metric">deduplication logic</span> and <span class="metric">automatic categorization</span> (Bug, Feature Request, Experience Gap), transforming thousands of raw social signals into actionable product insights.</li>
+            <li>Added a persistence layer with <span class="metric">Prisma ORM</span> and <span class="metric">PostgreSQL</span>, featuring <span class="metric">upsert mechanisms</span> to maintain a synchronized &ldquo;Problem Store&rdquo; that tracks market trends and competitor gaps over time.</li>
+            <li>Integrated an <span class="metric">AI Analysis Engine</span> that utilizes custom prompt versioning to generate structured product strategy reports, including MVP steps, solution ideas, and risk assessments based on ingested market signals.</li>
+          </ul>
+          <a href="https://github.com/eminbalmuk/Unsolved-AI" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        </article>
+        <article class="project-card">
+          <h3>TaskFlow Collaborative Kanban Platform</h3>
+          <p>Personal Project | 2026</p>
+          <ul>
+            <li>Built a full-stack Kanban board application with <span class="metric">Next.js</span>, <span class="metric">React</span>, <span class="metric">TypeScript</span>, <span class="metric">Prisma</span>, and <span class="metric">PostgreSQL</span>, focused on practical team task management.</li>
+            <li>Developed responsive dashboard and landing page flows, including drag-and-drop board interactions, due dates, multi-assignee task management, and mobile-friendly board navigation.</li>
+            <li>Implemented <span class="metric">role-based collaboration</span> features such as board sharing, viewer/editor permissions, self-leave flows for invited users, and access-aware UI/route protection.</li>
+            <li>Designed and maintained API routes, database schema migrations, and state management for real-time-feeling collaborative workflows across shared boards.</li>
+          </ul>
+          <a href="https://github.com/eminbalmuk/taskflow-kanban" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        </article>
+        <article class="project-card">
           <h3>Crypto Analysis and Trading Bot</h3>
-          <p>Python-based high-performance algorithmic trading engine that scans 200+ assets in under 2 minutes.</p>
+          <p>Personal Project | 2025</p>
           <ul>
-            <li>Strategy architecture focused on 66% win rate and 1:2.5 risk-reward profile</li>
-            <li>Automated ML pipeline with LightGBM, CatBoost, and TabNet</li>
-            <li>Custom labeling workflow with Google Sheets API and MongoDB logging infrastructure</li>
+            <li>Built a Python trading bot based on custom quantitative strategies.</li>
+            <li>Designed an architecture that screens <span class="metric">200+ crypto assets</span> in about <span class="metric">2 minutes</span> and reached a <span class="metric">66% success rate</span> with a <span class="metric">1:2.5 risk-reward ratio</span> in a real-time Telegram signal system.</li>
+            <li>Evaluated LightGBM, CatBoost, and TabNet during R&amp;D, then refactored the live system into a custom strategy-based architecture to reduce latency.</li>
+            <li>Processed high-volume market data with NumPy and Pandas and maintained trade logs and historical records in MongoDB.</li>
+            <li>Automated 24/7 trade lifecycle tracking through an additional &ldquo;Crypto Signal Tracker&rdquo; bot.</li>
           </ul>
         </article>
         <article class="project-card">
-          <h3>Credit Card Fraud Detection Pipeline</h3>
-          <p>
-            Production-ready machine learning pipeline for fraud detection using a dataset of 1.04M+ transactions.
-          </p>
-          <ul>
-            <li>Implemented leakage-free feature engineering using point-in-time calculations (velocity, behavioral patterns)</li>
-            <li>Optimized LightGBM, XGBoost, CatBoost, and Random Forest, achieving 0.925 PR-AUC and 0.85 F1-Score</li>
-            <li>Addressed extreme class imbalance (0.58% fraud) by prioritizing Precision-Recall AUC optimization</li>
-          </ul>
-          <a href="https://github.com/eminbalmuk/fraud-detection-ml" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Hub Repository</a>
-        </article>
-        <article class="project-card">          <h3>Unsolved: AI-Driven Problem Discovery Platform</h3>
-          <p>Automated research pipeline that scrapes customer signals to identify unaddressed needs and market gaps.</p>
-          <ul>
-            <li>Engineered with Next.js 16 and TypeScript, scraping real-time data from Reddit and App Store RSS</li>
-            <li>Analyzes text signals using keyword-based NLP to quantify Pain Intensity and Willingness to Pay</li>
-            <li>Generates structured product strategy reports with AI Analysis Engine for market gaps</li>
-          </ul>
-          <a href="https://github.com/eminbalmuk/Unsolved-AI" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repository</a>
-        </article>
-        <article class="project-card">          <h3>TaskFlow Collaborative Kanban Platform</h3>
-          <p>
-            Full-stack Kanban board application built for practical team task management with responsive collaboration flows.
-          </p>Kanban Platform</h3>
-          <p>
-            Full-stack Kanban application developed to make daily work tracking more organized and useful for teams.
-          </p>
-          <ul>
-            <li>Developed end-to-end using Next.js, React, TypeScript, Prisma, and PostgreSQL</li>
-            <li>Designed drag-and-drop board experience, due dates, multi-assignee tasks, and mobile-friendly usage flows</li>
-            <li>Established role-based collaboration structure with board sharing, viewer/editor permissions, and access-aware interface protection</li>
-          </ul>
-          <a href="https://github.com/eminbalmuk/taskflow-kanban" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repository</a>
-        </article>
-          <a href="https://github.com/eminbalmuk/taskflow-kanban" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repository</a>
-        </article>
           <h3>Datathon Competition</h3>
-          <p>
-            Team-based data analysis, visualization, and price prediction during Google AI & Technology
-            Academy Datathon.
-          </p>
+          <p>Google AI and Technology Academy | 2025</p>
           <ul>
-            <li>Insight extraction on a 210,000-row dataset using Matplotlib and Seaborn</li>
-            <li>Model experimentation with LightGBM, Random Forest, and XGBoost</li>
-            <li>High-accuracy forecasting on a new 56,000-row evaluation dataset</li>
+            <li>Led the data analysis and visualization of a <span class="metric">210,000-row dataset</span> in a <span class="metric">4-person cross-functional team</span>.</li>
+            <li>Built price prediction models for a new <span class="metric">56,000-row dataset</span> using LightGBM, Random Forest, and XGBoost.</li>
+            <li>Interpreted model outputs and translated complex findings into actionable visual insights with Matplotlib and Seaborn.</li>
           </ul>
         </article>
         <article class="project-card">
-          <h3>AI-Integrated Health App</h3>
-          <p>
-            Mobile app for pre-diagnosis support in cognitive disorders such as hyperactivity,
-            dementia, and autism, developed in a 5-person team.
-          </pMobile application offering pre-diagnosis support for hyperactivity, dementia, and autism.</p>
+          <h3>AI-Integrated Health Application</h3>
+          <p>Bootcamp Project | 2025</p>
           <ul>
-            <li>Bootcamp project ranked in the top 3 among 205 teams</li>
-            <li>Python backend, Dart frontend, Firebase and REST API integration</li>
-            <li>Application backend, Voice pronunciation module, and security improvement
-        <article class="project-card">
-          <h3>Real-Time Fire Detection System</h3>
-          <p>
-            YOLO11-based real-time fire and smoke detection system trained on a 95,000-image dataset.
-          </p>
-          <ul>
-            <li>82.8% smoke detection and 79.6% fire detection accuracy</li>
-            <li>Runs on both live feed and recorded video with bounding-box visualization</li>
-            <YOLO11-based real-time fire and smoke detection system trained on 95,000 images.</p>
-          <ul>
-            <li>82.8% smoke and 79.6% fire detection accuracy</li>
-            <li>Bounding-box visualization on live and recorded video</li>
-            <li>Strong detection performance on black-and-white images</li>
+            <li>Developed a mobile application with a <span class="metric">5-person team</span> for the preliminary assessment of cognitive conditions such as hyperactivity, dementia, and autism.</li>
+            <li>Developed the Python backend and core Dart frontend components, leading the team to rank in the <span class="metric">top 3 among 205 competing teams</span>.</li>
+            <li>Architected a voice pronunciation test module in Python, managed Firebase operations, and integrated systems through REST APIs.</li>
+            <li>Optimized several Dart screens and fixed critical security vulnerabilities.</li>
           </ul>
-          <a href="https://github.com/eminbalmuk/yolo-fire-and-smoke-detection" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repository</a>
+          <a href="https://github.com/BBBeyza/YZTA_YapayZeka_Grup-132" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
         </article>
-          </p>
+        <article class="project-card">
+          <h3>Fire Detection System for Live Security Cameras</h3>
+          <p>Computer Vision | 2025</p>
           <ul>
-            <li>Integrated a dynamic terminal-based file explorer and user interface using the dialog library</li>
-            <li>Ensured data security through atomic scheduling via crontab and recursive file management with find</li>
-            <li>Implemented centralized logging to provide end-to-end traceability and auditability</li>
+            <li>Trained a model on a dataset of <span class="metric">95,000 images</span> using YOLO 11.</li>
+            <li>Reached <span class="metric">82.8%</span> smoke detection accuracy and <span class="metric">79.6%</span> fire detection accuracy, with especially strong results on black-and-white images.</li>
+            <li>Tested the system on both live camera streams and recorded video footage, marking detected regions with bounding boxes.</li>
           </ul>
+          <a href="https://github.com/eminbalmuk/yolo-fire-and-smoke-detection" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
         </article>
         <article class="project-card">
           <h3>Real-Time Chat Application</h3>
-          <p>
-            Team project delivering a real-time messaging platform. I handled Node.js backend development
-            and Socket.io connection orchestration.
-          </p>
+          <p>Team Project | 2025</p>
           <ul>
-            <li>Built with React, Node.js, MongoDB, and Socket.io</li>
-            <li>Media storage integration with Cloudinary</li>
-            <li>Scalable real-time session and event management approach</li>
-          </uInstant messaging application developed within the scope of a team project.</p>
-          <ul>
-            <li>React, Node.js, MongoDB, and Socket.io architecture</li>
-            <li>Cloudinary media storage integration</li>
-            <li>Scalable real-time connection management</li>
+            <li>Built a real-time messaging application with a 3-person team using HTML, CSS (Tailwind), JavaScript, React, Node.js, MongoDB, and Socket.io.</li>
+            <li>Managed Node.js backend tasks, real-time connection management with Socket.io, MongoDB workflows, and media storage with Cloudinary.</li>
           </ul>
         </article>
         <article class="project-card">
-          <h3>Energy Fault Response Simulation</h3>
-          <p>Simulation of fault detection and intervention processes for potential energy outages in Istanbul.</p>
+          <h3>Automated Linux Backup System</h3>
+          <p>Personal Project | 2024</p>
           <ul>
-            <li>Developed with a 4-person team using Java (Spring Boot), JavaScript, and HTML</li>
-            <li>End-to-end interface design and backend integration support</li>
-            <li>Outage modeling with data structures and algorithms</li>
+            <li>Engineered a modular <span class="metric">Bash-based backup system</span> with support for both interactive TUI and fully automated headless execution modes.</li>
+            <li>Integrated a dynamic terminal-based file explorer and user interface using the <span class="metric">dialog</span> library to enhance user experience.</li>
+            <li>Ensured data security through <span class="metric">atomic scheduling via crontab</span>, recursive file management with find, and optimized archive compression using tar.</li>
+            <li>Implemented a centralized logging mechanism to provide end-to-end traceability and auditability of backup operations.</li>
           </ul>
         </article>
         <article class="project-card">
-          <h3>Series/Movie Watchlist Platform</h3>
-          <p>Desktop application focused on personal watchlist management and social interaction.</p>
+          <h3>Energy Distribution and Fault Response Simulation</h3>
+          <p>Team Project | 2024</p>
           <ul>
-            <li>User-friendly interface developed using Python and CustomTkinter</li>
-            <li>Data communication with a RESTful API layer between components</li>
-            <li>End-to-end feature development within a 3-person team</li>
+            <li>Built a city-scale energy fault simulation using Spring Boot and JavaScript to model real-time detection and response workflows for urban power outages.</li>
+            <li>Designed the full JavaScript/HTML interface and supported backend integration for optimized outage-response workflows.</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Personal Series/Movie Watchlist Platform</h3>
+          <p>Team Project | 2024</p>
+          <ul>
+            <li>Developed a social watchlist application using Python (backend) and CustomTkinter (frontend) within a 3-person team.</li>
+            <li>Engineered core backend features and designed the RESTful API layer to ensure seamless communication between system components.</li>
+            <li>End-to-end feature development including personal watchlist management and social interaction modules.</li>
           </ul>
         </article>
       </div>
       <ul class="certificate-list">
-        <li><span>2026</span>Artificial Intelligence Specialization Program - Foundation Training Certificate (Republic of Turkiye Ministry of Industry and Technology)</li>
+        <li><span>2026</span>Artificial Intelligence Specialization Program - Foundation Training Certificate (Republic of Türkiye Ministry of Industry and Technology)</li>
         <li><span>2026</span>Introduction to Open Source License Compliance Management (The Linux Foundation)</li>
         <li><span>2026</span>Model Context Protocol: Advanced Topics (Anthropic)</li>
         <li><span>2026</span>AI Fluency: Framework &amp; Foundations (Anthropic)</li>
         <li><span>2026</span>Claude 101 (Anthropic)</li>
         <li><span>2025</span>Google AI and Technology Academy Graduation Certificate</li>
-        <li><span>2025</span>Bootcamp Finalist Certificate of Achievement (Google AI & Technology Academy)</li>
-        <li><span>2025</span>Google Advanced Data Analytics (Coursera)</li>
+        <li><span>2025</span>Bootcamp Finalist Certificate of Achievement (Google AI &amp; Technology Academy)</li>
+        <li><span>2025</span>Google Advanced Data Analytics Certificate</li>
         <li><span>2025</span>Foundations of Data Science (Google)</li>
-        <li><span>2025</span>The Nuts and Bolts of Machine Learning (Google)</li>
+        <li><span>2025</span>The Nuts and Bolts of Machine Learning</li>
         <li><span>2025</span>Regression Analysis: Simplify Complex Data Relationships (Google)</li>
         <li><span>2025</span>Go Beyond the Numbers: Translate Data into Insights (Google)</li>
         <li><span>2025</span>The Power of Statistics (Google)</li>
         <li><span>2025</span>Get Started with Python (Google)</li>
         <li><span>2025</span>Foundations of Project Management (Google)</li>
-        <li><span>2022</span>Deutsches Sprachdiplom 1 - Kultusministerkonferenz</li>
+        <li><span>2022</span>Deutsches Sprachdiplom 1 (Kultusministerkonferenz)</li>
       </ul>
+    </section>
+    <section id="skills" class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Technical Skills</p>
+        <h2>Tools and Technologies</h2>
+      </div>
+      <div class="focus-grid">
+        <article>
+          <h3>Programming Languages</h3>
+          <p>Python, TypeScript, JavaScript, Java, C/C++, Dart, Bash</p>
+        </article>
+        <article>
+          <h3>LLM Engineering</h3>
+          <p>LLM agents, LLM-as-a-judge, structured output, prompt engineering, reasoning-effort control, request batching, multi-provider routing and rate-limit scheduling (OpenRouter, NVIDIA NIM, Groq, Google AI Studio)</p>
+        </article>
+        <article>
+          <h3>Retrieval and RAG</h3>
+          <p>Hybrid search (BM25 + dense embeddings), score fusion (RRF, DBSF), GraphRAG, listwise LLM reranking, query expansion, sentence-transformers, Qdrant</p>
+        </article>
+        <article>
+          <h3>Multimodal and Vision</h3>
+          <p>Vision-language models (Nemotron VL), multimodal content moderation, VLM benchmarking and fallback inference, YOLO object detection</p>
+        </article>
+        <article>
+          <h3>Speech and Audio</h3>
+          <p>Speech recognition (Qwen3-ASR, Whisper), LoRA fine-tuning, speaker diarization, speech emotion recognition (wav2vec 2.0, emotion2vec), stress and audio-event detection, real-time streaming, on-premise CPU inference</p>
+        </article>
+        <article>
+          <h3>Machine Learning</h3>
+          <p>PyTorch, scikit-learn, LightGBM, XGBoost, CatBoost, TabNet, Keras, Pandas, NumPy, Matplotlib, Seaborn</p>
+        </article>
+        <article>
+          <h3>Model Evaluation</h3>
+          <p>Hand-labeled gold sets, MRR, Hit@k, paired bootstrap confidence intervals, WER, AUROC, PR-AUC, F1, probability calibration</p>
+        </article>
+        <article>
+          <h3>Web and Mobile</h3>
+          <p>FastAPI, Next.js, React, Node.js, Expo / React Native, Spring Boot, REST, WebSocket, Socket.io</p>
+        </article>
+        <article>
+          <h3>Data and DevOps</h3>
+          <p>PostgreSQL, Supabase, MongoDB, Prisma, Firebase, SQL / MSSQL, Docker, Cloudflare Pages, GitLab CI/CD, Playwright, pytest, Git, uv</p>
+        </article>
+      </div>
     </section>
     <section id="contact" class="section contact reveal">
       <div class="section-head">
         <p class="eyebrow">Contact</p>
-        <h2>Let Us Connect for New Projects and Collaborations</h2>
+        <h2>Let's Connect for New Projects and Collaborations</h2>
       </div>
       <div class="contact-grid">
         <a class="contact-item" href="mailto:eminblmk@gmail.com">
@@ -304,7 +384,7 @@
         </div>
         <div class="contact-item">
           <span>Languages</span>
-          <strong>Turkish (Native), English (B2), German (A2)</strong>
+          <strong>Turkish (Native), English (B2), German (A2-B1)</strong>
         </div>
         <a class="contact-item" href="https://eminbalmuk.github.io" target="_blank" rel="noopener noreferrer">
           <span>Website</span>
@@ -317,9 +397,7 @@
     <p>&copy; 2026 Muhammet Emin Balmuk. All rights reserved.</p>
   </footer>
   <button class="to-top" type="button" aria-label="Back to top">Top</button>
-  <script src="scripts/language.js?v=20260305-4" defer></script>
-  <script src="scripts/main.js?v=20260305-4" defer></script>
+  <script src="scripts/language.js?v=20261109-1" defer></script>
+  <script src="scripts/main.js?v=20261109-1" defer></script>
 </body>
 </html>
-
-

@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css?v=20260305-4">
+  <link rel="stylesheet" href="styles/style.css?v=20261109-1">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Home">
       <span class="brand-avatar" aria-hidden="true">
-        <img src="images/profil.jpg" alt="Muhammet Emin Balmuk">
+        <img src="images/profil.jpeg" alt="Muhammet Emin Balmuk">
       </span>
       <span class="brand-name">Muhammet Emin Balmuk</span>
     </a>
@@ -42,18 +42,20 @@
   <main>
     <section class="hero about-hero reveal">
       <p class="eyebrow">About</p>
-      <h1>Data Scientist and ML/AI Engineer Candidate</h1>
+      <h1>AI Engineer and Startup CTO</h1>
       <p class="lead">
-        I study Computer Engineering and spend most of my time building practical data science and AI projects.
-        After completing an 8-month Google AI & Technology Academy program, I started focusing on production-minded
-        analytical systems where model quality, reliable data flow, and real business value go hand in hand.
+        I'm a Computer Engineering student at Marmara University and the Co-founder &amp; CTO of Giyiver. I also work as an
+        AI Engineering Intern at Orion Innovation, building LLM, vision-language, retrieval and speech systems.
+        My foundation in Python, machine learning and model evaluation comes from industry work, the Google AI and
+        Technology Academy and personal projects, and I enjoy turning models into reliable, measurable products.
       </p>
     </section>
+
     <section class="section reveal">
       <div class="fact-strip">
         <article>
           <h3>Marmara University</h3>
-          <p>B.Sc. in Computer Engineering (3rd year), with continuous project execution beyond coursework</p>
+          <p>B.Sc. in Computer Engineering (3rd year)</p>
           <span>October 2023 - Present</span>
         </article>
         <article>
@@ -62,28 +64,122 @@
           <span>September 2019 - June 2023</span>
         </article>
         <article>
-          <h3>Google AI & Technology Academy</h3>
-          <p>8-month intensive data science program with Datathon and bootcamp delivery outcomes</p>
-          <span>December 2024 - August 2025</span>
+          <h3>Giyiver</h3>
+          <p>Co-founder &amp; CTO of a clothing-swap marketplace, responsible for the entire technical side in a team of 7</p>
+          <span>June 2026 - Present</span>
         </article>
         <article>
-          <h3>Shell ILERIDE Program</h3>
-          <p>Trainee role focused on structured thinking, problem framing, and professional business perspectives</p>
-          <span>February 2026 - Present</span>
+          <h3>Orion Innovation</h3>
+          <p>AI Engineering Intern working on LLM, retrieval and speech systems</p>
+          <span>July 2026 - Present</span>
         </article>
         <article>
           <h3>GDG Marmara</h3>
-          <p>Project Developer Team Core Member contributing to scoped delivery and technical collaboration</p>
+          <p>AI Team Lead</p>
           <span>January 2026 - Present</span>
+        </article>
+        <article>
+          <h3>Shell ILERIDE Program</h3>
+          <p>Trainee and startup founder; Giyiver received investment through the program</p>
+          <span>February 2026 - June 2026</span>
+        </article>
+        <article>
+          <h3>Google AI &amp; Technology Academy</h3>
+          <p>8-month intensive data science program with datathon and bootcamp outcomes</p>
+          <span>December 2024 - August 2025</span>
         </article>
       </div>
     </section>
+
     <section class="section reveal">
       <div class="section-head">
         <p class="eyebrow">Experience</p>
-        <h2>Academy, Community, and Program Experience</h2>
+        <h2>Startup, Industry, Academy, and Community</h2>
       </div>
       <div class="timeline">
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/giyiver.png" alt="Giyiver">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">June 2026 - Present</p>
+              <h3>Giyiver</h3>
+              <p class="role-title">Co-founder &amp; CTO</p>
+            </div>
+          </div>
+          <p>
+            Turkish clothing-swap marketplace (barter, donation, points) live at <a href="https://giyiverr.com" target="_blank" rel="noopener noreferrer">giyiverr.com</a>. Backed by investment received through Shell ILERIDE. We are a team of 7, and I am responsible for the entire technical side of the project: web, mobile, backend, infrastructure, AI, security and testing.
+          </p>
+          <ul>
+            <li><strong>AI listing autofill:</strong> a vision-language model (NVIDIA NIM, <span class="metric">Nemotron 3.5 Super VL</span>) turns uploaded photos into title, category, colour, condition and description; images are downscaled client-side and sent as validated base64, so nothing is stored before publishing.</li>
+            <li><strong>Model selection and hedged inference:</strong> benchmarked candidate VLMs on real listing photos, dropped unreliable ones, disabled reasoning mode for <span class="metric">2-10 s</span> typical latency, and added a fallback model that races the primary after 12 s (first valid answer wins, the loser is cancelled).</li>
+            <li><strong>Multimodal moderation:</strong> one VLM call checks all photos and text of a listing (real clothing, same item in every photo, consistent description); free text also passes a local profanity filter and an AI check, built to fail open and backed by database triggers.</li>
+            <li><strong>Verified-image tokens:</strong> HMAC-signed, user-bound tokens carry SHA-256 digests of the analysed images; at publish time the server re-hashes the uploaded files and skips the second VLM call only if every digest matches, saving latency and cost without trusting the client.</li>
+            <li><strong>Platform:</strong> Next.js on Cloudflare Pages with edge functions, Supabase Postgres with row-level security (<span class="metric">57</span> migrations) and server-side points escrow, an Expo/React Native app, crawler-only rendering for SEO, and <span class="metric">570+</span> automated tests including SQL tests on a real Postgres engine.</li>
+          </ul>
+        </article>
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/orion.png" alt="Orion Innovation">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">July 2026 - Present</p>
+              <h3>Orion Innovation</h3>
+              <p class="role-title">AI Engineering Intern</p>
+            </div>
+          </div>
+          <p>
+            Building LLM, retrieval and speech systems across three projects: <strong>SOSIS</strong> (Software product line Optimization for Safety-/mission-critical Industrial Systems, ITEA 4), an AI-driven test management platform; <strong>GENIUS</strong> (Generative AI for the Software Development Life Cycle), LLM-based requirement extraction; and <strong>CLEAR</strong> (Call Listener Emergency Audio Recognition), real-time audio intelligence for emergency call centers.
+          </p>
+          <ul>
+            <li><strong>SOSIS:</strong> Designed a hybrid retrieval pipeline (dense embeddings + BM25, reciprocal rank fusion, GraphRAG) with optional listwise <span class="metric">LLM reranking</span> that links requirements, tests and source code automatically.</li>
+            <li>Benchmarked <span class="metric">20+ LLMs</span> across 5 providers and <span class="metric">10+ embedding models</span> on hand-labeled gold sets with paired bootstrap confidence intervals, reaching <span class="metric">MRR 0.71</span> (requirement-to-test) and <span class="metric">Hit@5 97.5%</span> (test-to-code); wrote the study up as a research paper.</li>
+            <li>Built an LLM pipeline that turns requirements into runnable Playwright tests, grounded with retrieved code, a graph-based page selector (page@3 <span class="metric">63% &rarr; 90%</span>) and a headless-browser probe of the live UI, plus checks that feed the model its own mistakes back before the first run.</li>
+            <li>Built LLM agents that adapt tests to a product variant, run them, repair failures from the run report and review the outcome (LLM-as-a-judge); mapped requirements to variants with a hybrid embedding scorer (<span class="metric">F1 0.74</span>).</li>
+            <li>Unified OpenRouter, NVIDIA NIM, Groq and Google AI Studio behind one client with provider routing, price caps and a token-per-minute scheduler.</li>
+            <li><strong>GENIUS:</strong> Optimized the multi-stage LLM requirement-extraction pipeline by batching zone classification, query expansion and rationale generation: LLM requests per document fell from <span class="metric">95 to 9</span> (zone classification <span class="metric">107 s &rarr; 3 s</span>, now well inside Groq's rate limit), and controlling reasoning effort on GLM 5.3 Flash halved token use (<span class="metric">336K &rarr; 165K</span>).</li>
+            <li>Evaluated the extracted requirements against a hand-written ground truth (<span class="metric">12 of 18</span> items matched fully, 6 partially, none missed), and integrated GENIUS into SOSIS so that its EARS/LESS requirements and labels (ISO 25010 quality dimension, actor, classification) feed test generation and variant mapping.</li>
+            <li><strong>CLEAR:</strong> Built a streaming pipeline that runs speech recognition (Qwen3-ASR with LoRA), speaker diarization, speech emotion, stress and audio-event models on live 911/112 calls, fully on-premise on CPU.</li>
+            <li>Trained calibrated accent classifiers on Whisper encoder features and combined emotion and stress signals for distress detection (<span class="metric">AUROC 0.87</span> vs 0.71 for stress alone).</li>
+            <li>Evaluated models on public benchmarks: <span class="metric">6.3%</span> WER on clean speech, <span class="metric">86%</span> emotion accuracy (vs <span class="metric">41%</span> for the earlier approach), first words appear on screen in about <span class="metric">2 s</span>.</li>
+          </ul>
+        </article>
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/gdg.png" alt="GDG Marmara">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">January 2026 - Present</p>
+              <h3>GDG - Google Developer Group Marmara</h3>
+              <p class="role-title">AI Team Lead</p>
+            </div>
+          </div>
+          <ul>
+            <li>Lead the AI team at GDG Marmara, driving technical projects and developer-focused community activities.</li>
+            <li>Work with the team on project planning, product thinking and delivery for software projects and community events.</li>
+            <li>Help turn ideas into buildable projects while building coordination, ownership and community skills.</li>
+          </ul>
+        </article>
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/shell.png" alt="Shell">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">February 2026 - June 2026</p>
+              <h3>Shell</h3>
+              <p class="role-title">ILERIDE Program | Trainee &amp; Startup Founder</p>
+            </div>
+          </div>
+          <ul>
+            <li>Took part in Shell's ILERIDE program, which focused on structured thinking, problem framing, communication and business skills.</li>
+            <li><strong>Giyiver</strong>, the startup I co-founded and lead as CTO, <span class="metric">received investment</span> through the program.</li>
+            <li>Used what I learned in the program for Giyiver's product and technical decisions, and to explain technical work to non-technical people.</li>
+          </ul>
+        </article>
         <article class="role-card">
           <div class="role-head">
             <div class="role-logo-box">
@@ -95,49 +191,16 @@
               <p class="role-title">Data Science Trainee</p>
             </div>
           </div>
-          <p>
-            Focused on data science, statistics, and machine learning workflows with a strong emphasis on
-            model validation and business-facing interpretation. Took active responsibility in Datathon and
-            bootcamp projects across high-volume data analysis, model experimentation, and practical output
-            delivery under time and quality constraints.
-          </p>
-        </article>
-        <article class="role-card">
-          <div class="role-head">
-            <div class="role-logo-box">
-              <img src="images/shell.png" alt="Shell">
-            </div>
-            <div class="role-meta">
-              <p class="timeline-date">February 2026 - Present</p>
-              <h3>Shell <span class="role-subbrand">Future Talent</span></h3>
-              <p class="role-title">ILERIDE Program | Trainee</p>
-            </div>
-          </div>
-          <p>
-            Participating in an ongoing development-focused program centered on structured thinking,
-            problem framing, and professional business perspectives. Applying takeaways from sessions and
-            activities to better understand how corporate teams approach decision-making and problem solving.
-          </p>
-        </article>
-        <article class="role-card">
-          <div class="role-head">
-            <div class="role-logo-box">
-              <img src="images/gdg.png" alt="GDG Marmara">
-            </div>
-            <div class="role-meta">
-              <p class="timeline-date">January 2026 - Present</p>
-              <h3>GDG Marmara</h3>
-              <p class="role-title">Project Developer Team - Core Member</p>
-            </div>
-          </div>
-          <p>
-            Contributing to community-driven project execution as a core member through structured
-            coordination, scoped delivery planning, and sustainable technical contribution. The role supports
-            both engineering depth and cross-team collaboration discipline.
-          </p>
+          <ul>
+            <li>Completed an intensive 8-month program in applied data science, machine learning and end-to-end project development.</li>
+            <li>Learned to work with real datasets, from analysis and statistics to model evaluation and turning results into insights, through coursework and team projects.</li>
+            <li>Took part in datathons and bootcamps, building models and working in teams under tight deadlines.</li>
+            <li>Helped build an AI-supported mobile app for preliminary dementia assessment during the bootcamp, finishing <span class="metric">3rd among 205 teams</span>.</li>
+          </ul>
         </article>
       </div>
     </section>
+
     <section class="section reveal">
       <div class="section-head">
         <p class="eyebrow">Approach</p>
@@ -172,16 +235,16 @@
         <article class="info-card">
           <h3>Language Proficiency</h3>
           <ul>
-            <li>English: B2-C1 (Upper Intermediate), active working language for documentation and technical
+            <li>English: B2 (Upper Intermediate), active working language for documentation and technical
               communication</li>
-            <li>German: B1 (Intermediate), supported by Deutsches Sprachdiplom background</li>
+            <li>German: A2-B1, supported by Deutsches Sprachdiplom background</li>
             <li>Deutsches Sprachdiplom 1 (2022)</li>
           </ul>
         </article>
         <article class="info-card">
           <h3>Featured Certificates</h3>
           <ul>
-            <li>Artificial Intelligence Specialization Program - Foundation Training Certificate (Republic of Turkiye Ministry of Industry and Technology, 2026)</li>
+            <li>Artificial Intelligence Specialization Program - Foundation Training Certificate (Republic of Türkiye Ministry of Industry and Technology, 2026)</li>
             <li>Introduction to Open Source License Compliance Management (The Linux Foundation, 2026)</li>
             <li>Google Advanced Data Analytics (Coursera, 2025)</li>
             <li>Foundations of Data Science (Google, 2025)</li>
@@ -233,8 +296,8 @@
     <p>&copy; 2026 Muhammet Emin Balmuk. All rights reserved.</p>
   </footer>
   <button class="to-top" type="button" aria-label="Back to top">Top</button>
-  <script src="scripts/language.js?v=20260305-4" defer></script>
-  <script src="scripts/main.js?v=20260305-4" defer></script>
+  <script src="scripts/language.js?v=20261109-1" defer></script>
+  <script src="scripts/main.js?v=20261109-1" defer></script>
 </body>
 
 </html>

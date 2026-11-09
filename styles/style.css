@@ -796,3 +796,23 @@ h3 {
     transform: none;
   }
 }
+
+.role-card ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.role-card li + li {
+  margin-top: 6px;
+}
+
+.role-card a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.metric {
+  color: var(--accent);
+  font-weight: 700;
+}
