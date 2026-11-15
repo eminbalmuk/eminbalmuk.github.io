@@ -3,102 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Muhammet Emin Balmuk - Bilgisayar Mühendisliği öğrencisi, Giyiver Co-founder & CTO, Orion Innovation AI Engineering Intern.">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    document.documentElement.classList.add("js-ready");
+    try {
+      var s = localStorage.getItem("color-scheme");
+      if (s === "light" || s === "dark") {
+        document.querySelector('meta[name="color-scheme"]').content = s;
+      }
+    } catch (_e) {}
+  </script>
+  <meta name="description" content="Muhammet Emin Balmuk - Bilgisayar Mühendisliği öğrencisi ve Orion Innovation'da AI Engineering Intern; LLM, retrieval, görsel-dil ve konuşma tabanlı yapay zeka sistemleri geliştiriyor.">
   <title>Muhammet Emin Balmuk | Portfolyo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css?v=20261109-1">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css?v=20261115-2">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="page-bg" aria-hidden="true"></div>
+  <canvas class="bg-canvas" aria-hidden="true"></canvas>
+  <a class="skip-link visually-hidden" href="#main-content">Ana içeriğe atla</a>
+  <div id="live-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
   <header class="site-header">
-    <a class="brand" href="index-tr.html" aria-label="Ana Sayfa">
-      <span class="brand-avatar" aria-hidden="true">
-        <img src="images/profil.jpeg" alt="Muhammet Emin Balmuk">
-      </span>
-      <span class="brand-name">Muhammet Emin Balmuk</span>
-    </a>
-    <button class="nav-toggle" type="button" aria-label="Menüyü aç-kapat" aria-expanded="false" aria-controls="site-nav">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="site-nav" id="site-nav" aria-label="Ana Navigasyon">
-      <a class="active" href="index-tr.html">Ana Sayfa</a>
-      <a href="about-tr.html">Hakkımda</a>
-      <a href="#experience">Deneyim</a>
-      <a href="#projects">Projeler</a>
-      <a href="#contact">İletişim</a>
-    </nav>
-    <button class="lang-toggle" type="button" aria-label="Dili değiştir" title="Dili değiştir"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">TR</span></button>
-  </header>
-  <main>
-    <section class="hero reveal">
-      <p class="eyebrow">Bilgisayar Mühendisliği Öğrencisi | AI Engineering</p>
-      <h1>Muhammet Emin Balmuk</h1>
-      <p class="lead">
-        Marmara Üniversitesi Bilgisayar Mühendisliği öğrencisiyim. Giyiver'in (Shell ILERIDE üzerinden yatırım alan bir
-        kıyafet takas girişimi) Co-founder &amp; CTO'su ve Orion Innovation'da AI Engineering Intern olarak LLM,
-        görsel-dil modeli, retrieval ve konuşma tabanlı yapay zeka sistemleri geliştiriyorum. Modelleri güvenilir ve
-        ölçülebilir ürünlere dönüştürmeyi seviyorum.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#projects">Projeleri İncele</a>
-        <a class="btn btn-ghost" href="about-tr.html">Detaylı Hakkımda</a>
+    <div class="header-inner">
+      <a class="brand" href="index-tr.html" aria-label="Muhammet Emin Balmuk Ana Sayfa">
+        <span class="brand-avatar" aria-hidden="true">
+          <img src="images/profil.jpeg" alt="" width="40" height="40">
+        </span>
+        <span class="brand-name">Muhammet Emin Balmuk</span>
+      </a>
+      <nav class="site-nav" aria-label="Birincil">
+        <button class="menu-button" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <span>Menü</span>
+        </button>
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="index-tr.html" aria-current="page">Ana Sayfa</a></li>
+          <li><a href="about-tr.html">Hakkımda</a></li>
+          <li><a href="#experience">Deneyim</a></li>
+          <li><a href="#projects">Projeler</a></li>
+          <li><a href="interests-tr.html">İlgi Alanları</a></li>
+          <li><a href="#contact">İletişim</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Koyu temaya geç" title="Koyu temaya geç">
+          <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+          </svg>
+        </button>
+        <button class="lang-toggle" type="button" aria-label="Dili değiştir" title="Dili değiştir"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">TR</span></button>
       </div>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="hero reveal">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>AI Engineering Intern @ Orion Innovation</p>
+          <h1>Muhammet Emin Balmuk</h1>
+          <p class="lead">
+            Marmara Üniversitesi Bilgisayar Mühendisliği öğrencisi ve Orion Innovation'da AI Engineering Intern olarak
+            LLM, görsel-dil modeli, retrieval ve konuşma tabanlı yapay zeka sistemleri geliştiriyorum. Stajımın yanında
+            GDG Marmara'da yapay zeka ekibine liderlik ediyor, modelleri güvenilir ve ölçülebilir ürünlere
+            dönüştürüyorum.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">
+              <span>Projeleri İncele</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a class="btn btn-ghost" href="about-tr.html">Detaylı Hakkımda</a>
+            <a class="btn btn-ghost" href="#contact">İletişim</a>
+          </div>
+        </div>
+
+        <aside class="hero-profile" aria-label="Profil özeti">
+          <div class="hero-portrait-wrap">
+            <div class="hero-portrait">
+              <img src="images/profil.jpeg" alt="Muhammet Emin Balmuk" width="1695" height="2089" fetchpriority="high">
+            </div>
+            <div class="hero-identity">
+              <p class="hero-identity-label">İstanbul, TR</p>
+              <strong>M. Emin Balmuk</strong>
+              <span>Marmara Üniversitesi &middot; Bilgisayar Müh.</span>
+            </div>
+          </div>
+          <ul class="hero-roles">
+            <li><span>Orion Innovation</span><strong>AI Engineering Intern</strong></li>
+            <li><span>GDG Marmara</span><strong>AI Team Lead</strong></li>
+            <li><span>Marmara Üniversitesi</span><strong>Bilgisayar Müh. Lisans</strong></li>
+          </ul>
+          <ul class="hero-focus-tags" aria-label="Odak alanları">
+            <li>LLM &amp; Ajanlar</li>
+            <li>Hibrit RAG</li>
+            <li>Konuşma AI'ı</li>
+            <li>VLM'ler</li>
+          </ul>
+        </aside>
+      </div>
+
       <ul class="quick-stats">
         <li>
-          <strong>Giyiver: Canlıdaki Ürün</strong>
-          <span>giyiverr.com'da yayında olan kıyafet takas platformu, Shell ILERIDE üzerinden yatırım aldı. 7 kişilik ekipte projenin tüm teknik tarafından ben sorumluyum.</span>
-        </li>
-        <li>
+          <span class="stat-index">01 // RETRIEVAL</span>
           <strong>Orion'da Retrieval Benchmark'ları</strong>
           <span>20+ LLM ve 10+ embedding modelini karşılaştırdım; MRR 0.71 (gereksinimden teste) ve Hit@5 %97.5 (testten koda) elde ettim</span>
         </li>
         <li>
+          <span class="stat-index">02 // SES AI'I</span>
           <strong>Gerçek Zamanlı Konuşma AI'ı</strong>
           <span>Canlı acil çağrılar için on-premise pipeline: temiz konuşmada %6.3 WER, %86 duygu doğruluğu, ilk kelimeler yaklaşık 2 sn'de ekranda</span>
         </li>
         <li>
+          <span class="stat-index">03 // LLM PIPELINE</span>
+          <strong>Gecikme ve Token Optimizasyonu</strong>
+          <span>GENIUS'ta doküman başına LLM isteğini 95'ten 9'a (107 sn &rarr; 3 sn) düşürdüm ve token kullanımını yarıya indirdim</span>
+        </li>
+        <li>
+          <span class="stat-index">04 // BOOTCAMP</span>
           <strong>Bootcamp'te İlk 3</strong>
           <span>Google AI &amp; Technology Academy'de AI entegre sağlık uygulamamızla 205 takım arasında 3. olduk</span>
         </li>
       </ul>
     </section>
 
-    <section id="experience" class="section reveal">
+    <section id="experience" class="section reveal" tabindex="-1">
       <div class="section-head">
-        <p class="eyebrow">Deneyim</p>
-        <h2>Girişim, Sektör, Akademi ve Topluluk</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">01 // Deneyim</p>
+          <h2>Sektör, Girişim, Akademi ve Topluluk</h2>
+        </div>
       </div>
       <div class="timeline">
+        <div class="timeline-progress" aria-hidden="true"></div>
         <article class="role-card">
           <div class="role-head">
-            <div class="role-logo-box">
-              <img src="images/giyiver.png" alt="Giyiver">
-            </div>
-            <div class="role-meta">
-              <p class="timeline-date">Haziran 2026 - Günümüz</p>
-              <h3>Giyiver</h3>
-              <p class="role-title">Co-founder &amp; CTO</p>
-            </div>
-          </div>
-          <p>
-            Takas, bağış ve puan sistemiyle çalışan Türkçe kıyafet takas platformu, <a href="https://giyiverr.com" target="_blank" rel="noopener noreferrer">giyiverr.com</a> adresinde yayında. Shell ILERIDE üzerinden yatırım aldı. 7 kişilik bir ekibiz; web, mobil, backend, altyapı, yapay zeka, güvenlik ve test dahil projenin tüm teknik tarafından ben sorumluyum.
-          </p>
-          <ul>
-            <li><strong>AI ile ilan doldurma:</strong> bir görsel-dil modeli (NVIDIA NIM, <span class="metric">Nemotron 3.5 Super VL</span>) yüklenen fotoğrafları başlık, kategori, renk, durum ve açıklamaya çeviriyor; görseller istemcide küçültülüp doğrulanmış base64 olarak gönderiliyor, bu yüzden yayınlanmadan önce hiçbir şey saklanmıyor.</li>
-            <li><strong>Model seçimi ve hedged inference:</strong> aday VLM'leri gerçek ilan fotoğraflarında karşılaştırdım, güvenilmez olanları eledim, reasoning modunu kapatarak tipik gecikmeyi <span class="metric">2-10 sn</span>'ye indirdim ve 12 sn sonra ana modelle yarışan bir yedek model ekledim (ilk geçerli cevap kazanıyor, kaybeden iptal ediliyor).</li>
-            <li><strong>Çok modlu moderasyon:</strong> tek bir VLM çağrısı ilandaki tüm fotoğrafları ve metni kontrol ediyor (gerçek kıyafet mi, her fotoğrafta aynı ürün mü, açıklama tutarlı mı); serbest metin ayrıca yerel küfür filtresinden ve bir AI kontrolünden geçiyor, hata durumunda açık kalacak şekilde tasarlandı ve veritabanı trigger'larıyla destekleniyor.</li>
-            <li><strong>Doğrulanmış görsel token'ları:</strong> HMAC imzalı, kullanıcıya bağlı token'lar analiz edilen görsellerin SHA-256 özetlerini taşıyor; yayın anında sunucu yüklenen dosyaların özetini yeniden hesaplıyor ve yalnızca tüm özetler eşleşirse ikinci VLM çağrısını atlıyor, böylece istemciye güvenmeden gecikme ve maliyetten tasarruf ediyor.</li>
-            <li><strong>Platform:</strong> Cloudflare Pages üzerinde edge function'lı Next.js, satır seviyesi güvenlikli (<span class="metric">57</span> migration) ve sunucu taraflı puan escrow'lu Supabase Postgres, Expo/React Native uygulaması, SEO için yalnızca crawler'lara yönelik render ve gerçek bir Postgres motorunda SQL testleri dahil <span class="metric">570+</span> otomatik test.</li>
-          </ul>
-        </article>
-        <article class="role-card">
-          <div class="role-head">
-            <div class="role-logo-box">
-              <img src="images/orion.png" alt="Orion Innovation">
+            <div class="role-logo-box role-logo-box--wide">
+              <img src="images/orion.png" alt="Orion Innovation" width="800" height="480" loading="lazy">
             </div>
             <div class="role-meta">
               <p class="timeline-date">Temmuz 2026 - Günümüz</p>
@@ -122,10 +175,34 @@
             <li>Modelleri açık benchmark'larda değerlendirdim: temiz konuşmada <span class="metric">%6.3</span> WER, <span class="metric">%86</span> duygu doğruluğu (önceki yaklaşımda <span class="metric">%41</span>), ilk kelimeler yaklaşık <span class="metric">2 sn</span>'de ekranda.</li>
           </ul>
         </article>
+
         <article class="role-card">
           <div class="role-head">
             <div class="role-logo-box">
-              <img src="images/gdg.png" alt="GDG Marmara">
+              <img src="images/giyiver.png" alt="Giyiver" width="512" height="512" loading="lazy">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">Haziran 2026 - Günümüz</p>
+              <h3>Giyiver</h3>
+              <p class="role-title">Co-founder &amp; CTO</p>
+            </div>
+          </div>
+          <p>
+            Takas, bağış ve puan sistemiyle çalışan Türkçe kıyafet takas platformu, <a href="https://giyiverr.com" target="_blank" rel="noopener noreferrer">giyiverr.com</a> adresinde yayında. Shell ILERIDE üzerinden yatırım aldı. 7 kişilik bir ekibiz; web, mobil, backend, altyapı, yapay zeka, güvenlik ve test dahil projenin tüm teknik tarafından ben sorumluyum.
+          </p>
+          <ul>
+            <li><strong>AI ile ilan doldurma:</strong> bir görsel-dil modeli (NVIDIA NIM, <span class="metric">Nemotron 3.5 Super VL</span>) yüklenen fotoğrafları başlık, kategori, renk, durum ve açıklamaya çeviriyor; görseller istemcide küçültülüp doğrulanmış base64 olarak gönderiliyor, bu yüzden yayınlanmadan önce hiçbir şey saklanmıyor.</li>
+            <li><strong>Model seçimi ve hedged inference:</strong> aday VLM'leri gerçek ilan fotoğraflarında karşılaştırdım, güvenilmez olanları eledim, reasoning modunu kapatarak tipik gecikmeyi <span class="metric">2-10 sn</span>'ye indirdim ve 12 sn sonra ana modelle yarışan bir yedek model ekledim (ilk geçerli cevap kazanıyor, kaybeden iptal ediliyor).</li>
+            <li><strong>Çok modlu moderasyon:</strong> tek bir VLM çağrısı ilandaki tüm fotoğrafları ve metni kontrol ediyor (gerçek kıyafet mi, her fotoğrafta aynı ürün mü, açıklama tutarlı mı); serbest metin ayrıca yerel küfür filtresinden ve bir AI kontrolünden geçiyor, hata durumunda açık kalacak şekilde tasarlandı ve veritabanı trigger'larıyla destekleniyor.</li>
+            <li><strong>Doğrulanmış görsel token'ları:</strong> HMAC imzalı, kullanıcıya bağlı token'lar analiz edilen görsellerin SHA-256 özetlerini taşıyor; yayın anında sunucu yüklenen dosyaların özetini yeniden hesaplıyor ve yalnızca tüm özetler eşleşirse ikinci VLM çağrısını atlıyor, böylece istemciye güvenmeden gecikme ve maliyetten tasarruf ediyor.</li>
+            <li><strong>Platform:</strong> Cloudflare Pages üzerinde edge function'lı Next.js, satır seviyesi güvenlikli (<span class="metric">57</span> migration) ve sunucu taraflı puan escrow'lu Supabase Postgres, Expo/React Native uygulaması, SEO için yalnızca crawler'lara yönelik render ve gerçek bir Postgres motorunda SQL testleri dahil <span class="metric">570+</span> otomatik test.</li>
+          </ul>
+        </article>
+
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/gdg.png" alt="GDG Marmara" width="2160" height="2160" loading="lazy">
             </div>
             <div class="role-meta">
               <p class="timeline-date">Ocak 2026 - Günümüz</p>
@@ -139,10 +216,11 @@
             <li>Koordinasyon, sorumluluk alma ve topluluk becerilerimi geliştirirken fikirleri hayata geçirilebilir projelere dönüştürmeye yardım ediyorum.</li>
           </ul>
         </article>
+
         <article class="role-card">
           <div class="role-head">
             <div class="role-logo-box">
-              <img src="images/shell.png" alt="Shell">
+              <img src="images/shell.png" alt="Shell" width="1900" height="1600" loading="lazy">
             </div>
             <div class="role-meta">
               <p class="timeline-date">Şubat 2026 - Haziran 2026</p>
@@ -156,10 +234,11 @@
             <li>Programda öğrendiklerimi Giyiver'in ürün ve teknik kararlarında kullandım, teknik işleri teknik olmayan kişilere anlatmak için de değerlendirdim.</li>
           </ul>
         </article>
+
         <article class="role-card">
           <div class="role-head">
             <div class="role-logo-box">
-              <img src="images/yzta.png" alt="Google AI and Technology Academy">
+              <img src="images/yzta.png" alt="Google AI and Technology Academy" width="1438" height="1438" loading="lazy">
             </div>
             <div class="role-meta">
               <p class="timeline-date">Aralık 2024 - Ağustos 2025</p>
@@ -177,15 +256,24 @@
       </div>
     </section>
 
-    <section id="projects" class="section reveal">
+    <section id="projects" class="section reveal" tabindex="-1">
       <div class="section-head">
-        <p class="eyebrow">Portfolyo</p>
-        <h2>Öne Çıkan Projeler</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">02 // Portfolyo</p>
+          <h2>Öne Çıkan Projeler</h2>
+        </div>
+        <div class="filter-bar" role="group" aria-label="Projeleri kategoriye göre filtrele">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">Tümü (11)</button>
+          <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">Yapay Zeka &amp; ML (6)</button>
+          <button class="filter-btn" type="button" data-filter="fullstack" aria-pressed="false">Full-Stack (6)</button>
+          <button class="filter-btn" type="button" data-filter="systems" aria-pressed="false">Sistem &amp; Veri (4)</button>
+        </div>
       </div>
+      <p id="project-filter-status" class="visually-hidden" aria-live="polite"></p>
       <div class="project-grid">
-        <article class="project-card">
+        <article class="project-card" data-tags="ai systems">
+          <p class="project-meta">Kişisel Proje &middot; 2026</p>
           <h3>Kredi Kartı Sahtekarlık Tespit Sistemi</h3>
-          <p>Kişisel Proje | 2026</p>
           <ul>
             <li><span class="metric">1.04M+ işlemlik</span> bir veri setiyle sahtekarlık tespiti için production-ready bir makine öğrenmesi pipeline'ı geliştirdim.</li>
             <li>Gelecekteki veri sızıntısını önlemek için point-in-time hesaplamalarla (velocity, davranışsal örüntüler) <span class="metric">data leakage içermeyen özellik mühendisliği</span> uyguladım.</li>
@@ -193,11 +281,17 @@
             <li>Aşırı sınıf dengesizliğini (<span class="metric">%0.58 fraud</span>) Precision-Recall AUC optimizasyonuna öncelik vererek yönettim, böylece finansal bağlamda yanlış pozitifleri en aza indirdim.</li>
             <li>Pandas, Matplotlib ve Seaborn ile veri dağılımı analizi ve model performansı görselleştirmesi için otomatik tanı araçları geliştirdim.</li>
           </ul>
-          <a href="https://github.com/eminbalmuk/fraud-detection-ml" target="_blank" rel="noopener noreferrer">GitHub Reposu</a>
+          <div class="project-link">
+            <a href="https://github.com/eminbalmuk/fraud-detection-ml" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Reposu</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="ai fullstack">
+          <p class="project-meta">Kişisel Proje &middot; 2026</p>
           <h3>Unsolved: AI Destekli Problem Keşif Platformu ve Otomatik Scraper</h3>
-          <p>Kişisel Proje | 2026</p>
           <ul>
             <li><span class="metric">Next.js 16</span> ve <span class="metric">TypeScript</span> ile, karşılanmamış ihtiyaçları ve pazar boşluklarını bulmak için <span class="metric">Reddit API</span> ve <span class="metric">App Store RSS</span> akışlarından gerçek zamanlı müşteri sinyalleri toplayan otomatik bir araştırma pipeline'ı kurdum.</li>
             <li>Ham metin sinyallerini <span class="metric">anahtar kelime tabanlı NLP</span> ve duygu ağırlıklarıyla analiz ederek <span class="metric">Pain Intensity</span>, <span class="metric">Frequency</span> ve <span class="metric">Willingness to Pay (WTP)</span> değerlerini ölçen sezgisel bir skorlama motoru geliştirdim.</li>
@@ -205,22 +299,34 @@
             <li><span class="metric">Prisma ORM</span> ve <span class="metric">PostgreSQL</span> ile, pazar trendlerini ve rakip boşluklarını zaman içinde takip eden senkron bir &ldquo;Problem Store&rdquo; tutan <span class="metric">upsert mekanizmalı</span> bir veri saklama katmanı ekledim.</li>
             <li>Özel prompt versiyonlama kullanan, aldığı pazar sinyallerine göre MVP adımları, çözüm fikirleri ve risk değerlendirmeleri içeren yapılandırılmış ürün strateji raporları üreten bir <span class="metric">AI Analiz Motoru</span> entegre ettim.</li>
           </ul>
-          <a href="https://github.com/eminbalmuk/Unsolved-AI" target="_blank" rel="noopener noreferrer">GitHub Reposu</a>
+          <div class="project-link">
+            <a href="https://github.com/eminbalmuk/Unsolved-AI" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Reposu</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="fullstack">
+          <p class="project-meta">Kişisel Proje &middot; 2026</p>
           <h3>TaskFlow İş Birlikli Kanban Platformu</h3>
-          <p>Kişisel Proje | 2026</p>
           <ul>
             <li>Pratik ekip görev yönetimine odaklanan, <span class="metric">Next.js</span>, <span class="metric">React</span>, <span class="metric">TypeScript</span>, <span class="metric">Prisma</span> ve <span class="metric">PostgreSQL</span> ile full-stack bir Kanban board uygulaması geliştirdim.</li>
             <li>Sürükle-bırak board etkileşimleri, son tarihler, birden fazla kişiye görev atama ve mobil uyumlu board gezinmesi dahil responsive dashboard ve landing page akışları geliştirdim.</li>
             <li>Board paylaşımı, viewer/editor yetkileri, davetli kullanıcılar için kendi kendine ayrılma akışları ve erişime duyarlı UI/route koruması gibi <span class="metric">rol bazlı iş birliği</span> özellikleri uyguladım.</li>
             <li>Paylaşılan board'larda gerçek zamanlı hissi veren iş birliği akışları için API route'larını, veritabanı şema migration'larını ve state yönetimini tasarlayıp sürdürdüm.</li>
           </ul>
-          <a href="https://github.com/eminbalmuk/taskflow-kanban" target="_blank" rel="noopener noreferrer">GitHub Reposu</a>
+          <div class="project-link">
+            <a href="https://github.com/eminbalmuk/taskflow-kanban" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Reposu</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="ai systems">
+          <p class="project-meta">Kişisel Proje &middot; 2025</p>
           <h3>Kripto Analiz ve Trading Botu</h3>
-          <p>Kişisel Proje | 2025</p>
           <ul>
             <li>Özel kantitatif stratejilere dayanan bir Python trading botu geliştirdim.</li>
             <li><span class="metric">200+ kripto varlığı</span> yaklaşık <span class="metric">2 dakikada</span> tarayan bir mimari tasarladım; gerçek zamanlı Telegram sinyal sisteminde <span class="metric">%66 başarı oranı</span> ve <span class="metric">1:2.5 risk-getiri oranı</span> yakaladım.</li>
@@ -229,47 +335,62 @@
             <li>Ek bir &ldquo;Crypto Signal Tracker&rdquo; botuyla 7/24 işlem yaşam döngüsü takibini otomatikleştirdim.</li>
           </ul>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="ai">
+          <p class="project-meta">Google AI &amp; Technology Academy &middot; 2025</p>
           <h3>Datathon Yarışması</h3>
-          <p>Google AI and Technology Academy | 2025</p>
           <ul>
             <li><span class="metric">4 kişilik çapraz fonksiyonlu</span> ekipte <span class="metric">210.000 satırlık veri setinin</span> analiz ve görselleştirmesine liderlik ettim.</li>
             <li>Yeni <span class="metric">56.000 satırlık veri seti</span> için LightGBM, Random Forest ve XGBoost ile fiyat tahmin modelleri geliştirdim.</li>
             <li>Model çıktılarını yorumlayıp karmaşık bulguları Matplotlib ve Seaborn ile uygulanabilir görsel içgörülere dönüştürdüm.</li>
           </ul>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="ai fullstack">
+          <p class="project-meta">Bootcamp Projesi &middot; 2025</p>
           <h3>AI Entegre Sağlık Uygulaması</h3>
-          <p>Bootcamp Projesi | 2025</p>
           <ul>
             <li><span class="metric">5 kişilik ekiple</span> hiperaktivite, demans ve otizm gibi bilişsel durumların ön değerlendirmesi için bir mobil uygulama geliştirdim.</li>
             <li>Python backend'ini ve Dart frontend'in çekirdek bileşenlerini geliştirdim; ekibi <span class="metric">205 takım arasında ilk 3</span>'e taşıdım.</li>
             <li>Python ile bir ses telaffuz testi modülü tasarladım, Firebase işlemlerini yönettim ve sistemleri REST API'lerle entegre ettim.</li>
             <li>Birkaç Dart ekranını optimize ettim ve kritik güvenlik açıklarını giderdim.</li>
           </ul>
-          <a href="https://github.com/BBBeyza/YZTA_YapayZeka_Grup-132" target="_blank" rel="noopener noreferrer">GitHub Reposu</a>
+          <div class="project-link">
+            <a href="https://github.com/BBBeyza/YZTA_YapayZeka_Grup-132" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Reposu</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="ai">
+          <p class="project-meta">Bilgisayarlı Görü &middot; 2025</p>
           <h3>Canlı Güvenlik Kameraları için Yangın Tespit Sistemi</h3>
-          <p>Bilgisayarlı Görü | 2025</p>
           <ul>
             <li>YOLO 11 ile <span class="metric">95.000 görselden</span> oluşan bir veri setinde model eğittim.</li>
             <li><span class="metric">%82.8</span> duman ve <span class="metric">%79.6</span> yangın tespit doğruluğuna ulaştım; siyah-beyaz görüntülerde özellikle güçlü sonuçlar aldım.</li>
             <li>Sistemi hem canlı kamera yayınlarında hem de kayıtlı videolarda test ettim, tespit edilen bölgeleri bounding box ile işaretledim.</li>
           </ul>
-          <a href="https://github.com/eminbalmuk/yolo-fire-and-smoke-detection" target="_blank" rel="noopener noreferrer">GitHub Reposu</a>
+          <div class="project-link">
+            <a href="https://github.com/eminbalmuk/yolo-fire-and-smoke-detection" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Reposu</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="fullstack">
+          <p class="project-meta">Ekip Projesi &middot; 2025</p>
           <h3>Gerçek Zamanlı Sohbet Uygulaması</h3>
-          <p>Ekip Projesi | 2025</p>
           <ul>
             <li>3 kişilik ekiple HTML, CSS (Tailwind), JavaScript, React, Node.js, MongoDB ve Socket.io kullanarak gerçek zamanlı bir mesajlaşma uygulaması geliştirdim.</li>
             <li>Node.js backend görevlerini, Socket.io ile gerçek zamanlı bağlantı yönetimini, MongoDB akışlarını ve Cloudinary ile medya depolamayı yürüttüm.</li>
           </ul>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="systems">
+          <p class="project-meta">Kişisel Proje &middot; 2024</p>
           <h3>Otomatik Linux Yedekleme Sistemi</h3>
-          <p>Kişisel Proje | 2024</p>
           <ul>
             <li>Hem etkileşimli TUI hem de tam otomatik headless çalışma modunu destekleyen modüler bir <span class="metric">Bash tabanlı yedekleme sistemi</span> geliştirdim.</li>
             <li>Kullanıcı deneyimini iyileştirmek için <span class="metric">dialog</span> kütüphanesiyle dinamik bir terminal dosya gezgini ve arayüz entegre ettim.</li>
@@ -277,17 +398,19 @@
             <li>Yedekleme işlemlerinin uçtan uca izlenebilir ve denetlenebilir olması için merkezi bir loglama mekanizması kurdum.</li>
           </ul>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="fullstack systems">
+          <p class="project-meta">Ekip Projesi &middot; 2024</p>
           <h3>Enerji Dağıtımı ve Arıza Müdahale Simülasyonu</h3>
-          <p>Ekip Projesi | 2024</p>
           <ul>
             <li>Kentsel elektrik kesintileri için gerçek zamanlı tespit ve müdahale akışlarını modelleyen, Spring Boot ve JavaScript ile şehir ölçeğinde bir enerji arıza simülasyonu geliştirdim.</li>
             <li>Tüm JavaScript/HTML arayüzünü tasarladım ve kesinti müdahale akışlarının optimizasyonu için backend entegrasyonuna destek verdim.</li>
           </ul>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="fullstack">
+          <p class="project-meta">Ekip Projesi &middot; 2024</p>
           <h3>Kişisel Dizi/Film İzleme Listesi Platformu</h3>
-          <p>Ekip Projesi | 2024</p>
           <ul>
             <li>3 kişilik ekiple Python (backend) ve CustomTkinter (frontend) kullanarak sosyal bir izleme listesi uygulaması geliştirdim.</li>
             <li>Çekirdek backend özelliklerini geliştirdim ve sistem bileşenleri arasında sorunsuz iletişim için RESTful API katmanını tasarladım.</li>
@@ -297,55 +420,144 @@
       </div>
     </section>
 
-    <section id="skills" class="section reveal">
+    <section id="skills" class="section reveal" tabindex="-1">
       <div class="section-head">
-        <p class="eyebrow">Teknik Beceriler</p>
-        <h2>Araçlar ve Teknolojiler</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">03 // Teknik Beceriler</p>
+          <h2>Araçlar ve Teknolojiler</h2>
+        </div>
       </div>
       <div class="focus-grid">
         <article>
           <h3>Programlama Dilleri</h3>
-          <p>Python, TypeScript, JavaScript, Java, C/C++, Dart, Bash</p>
+          <ul class="skill-tags">
+            <li>Python</li>
+            <li>TypeScript</li>
+            <li>JavaScript</li>
+            <li>Java</li>
+            <li>C/C++</li>
+            <li>Dart</li>
+            <li>Bash</li>
+          </ul>
         </article>
         <article>
           <h3>LLM Mühendisliği</h3>
-          <p>LLM ajanları, LLM-as-a-judge, yapılandırılmış çıktı (structured output), prompt engineering, reasoning effort kontrolü, istek gruplama (batching), çoklu sağlayıcı yönlendirme ve rate limit zamanlama (OpenRouter, NVIDIA NIM, Groq, Google AI Studio)</p>
+          <ul class="skill-tags">
+            <li>LLM ajanları</li>
+            <li>LLM-as-a-judge</li>
+            <li>Structured output</li>
+            <li>Prompt engineering</li>
+            <li>Reasoning effort kontrolü</li>
+            <li>İstek gruplama (batching)</li>
+            <li>Çoklu sağlayıcı yönlendirme &amp; rate limit zamanlama</li>
+            <li>OpenRouter / NIM / Groq / AI Studio</li>
+          </ul>
         </article>
         <article>
           <h3>Retrieval ve RAG</h3>
-          <p>Hibrit arama (BM25 + yoğun embedding), skor birleştirme (RRF, DBSF), GraphRAG, listwise LLM reranking, sorgu genişletme, sentence-transformers, Qdrant</p>
+          <ul class="skill-tags">
+            <li>Hibrit arama (BM25 + yoğun)</li>
+            <li>Skor birleştirme (RRF, DBSF)</li>
+            <li>GraphRAG</li>
+            <li>Listwise LLM reranking</li>
+            <li>Sorgu genişletme</li>
+            <li>sentence-transformers</li>
+            <li>Qdrant</li>
+          </ul>
         </article>
         <article>
           <h3>Çok Modlu Sistemler ve Görü</h3>
-          <p>Görsel-dil modelleri (Nemotron VL), çok modlu içerik moderasyonu, VLM benchmark'ı ve yedek model çıkarımı, YOLO nesne tespiti</p>
+          <ul class="skill-tags">
+            <li>Görsel-dil modelleri (Nemotron VL)</li>
+            <li>Çok modlu moderasyon</li>
+            <li>VLM benchmark</li>
+            <li>Yedek model çıkarımı</li>
+            <li>YOLO nesne tespiti</li>
+          </ul>
         </article>
         <article>
           <h3>Konuşma ve Ses</h3>
-          <p>Konuşma tanıma (Qwen3-ASR, Whisper), LoRA fine-tuning, konuşmacı ayrıştırma, konuşma duygu tanıma (wav2vec 2.0, emotion2vec), stres ve ses olayı tespiti, gerçek zamanlı streaming, on-premise CPU çıkarımı</p>
+          <ul class="skill-tags">
+            <li>Qwen3-ASR / Whisper</li>
+            <li>LoRA fine-tuning</li>
+            <li>Konuşmacı ayrıştırma</li>
+            <li>Duygu tanıma (wav2vec 2.0, emotion2vec)</li>
+            <li>Stres &amp; ses olayı tespiti</li>
+            <li>Gerçek zamanlı streaming</li>
+            <li>On-premise CPU çıkarımı</li>
+          </ul>
         </article>
         <article>
           <h3>Makine Öğrenmesi</h3>
-          <p>PyTorch, scikit-learn, LightGBM, XGBoost, CatBoost, TabNet, Keras, Pandas, NumPy, Matplotlib, Seaborn</p>
+          <ul class="skill-tags">
+            <li>PyTorch</li>
+            <li>scikit-learn</li>
+            <li>LightGBM</li>
+            <li>XGBoost</li>
+            <li>CatBoost</li>
+            <li>TabNet</li>
+            <li>Keras</li>
+            <li>Pandas</li>
+            <li>NumPy</li>
+            <li>Matplotlib</li>
+            <li>Seaborn</li>
+          </ul>
         </article>
         <article>
           <h3>Model Değerlendirme</h3>
-          <p>Elle etiketlenmiş gold set'ler, MRR, Hit@k, paired bootstrap güven aralıkları, WER, AUROC, PR-AUC, F1, olasılık kalibrasyonu</p>
+          <ul class="skill-tags">
+            <li>Elle etiketlenmiş gold set'ler</li>
+            <li>MRR</li>
+            <li>Hit@k</li>
+            <li>Paired bootstrap güven aralıkları</li>
+            <li>WER</li>
+            <li>AUROC</li>
+            <li>PR-AUC</li>
+            <li>F1</li>
+            <li>Olasılık kalibrasyonu</li>
+          </ul>
         </article>
         <article>
           <h3>Web ve Mobil</h3>
-          <p>FastAPI, Next.js, React, Node.js, Expo / React Native, Spring Boot, REST, WebSocket, Socket.io</p>
+          <ul class="skill-tags">
+            <li>FastAPI</li>
+            <li>Next.js</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Expo / React Native</li>
+            <li>Spring Boot</li>
+            <li>REST</li>
+            <li>WebSocket</li>
+            <li>Socket.io</li>
+          </ul>
         </article>
         <article>
           <h3>Veri ve DevOps</h3>
-          <p>PostgreSQL, Supabase, MongoDB, Prisma, Firebase, SQL / MSSQL, Docker, Cloudflare Pages, GitLab CI/CD, Playwright, pytest, Git, uv</p>
+          <ul class="skill-tags">
+            <li>PostgreSQL</li>
+            <li>Supabase</li>
+            <li>MongoDB</li>
+            <li>Prisma</li>
+            <li>Firebase</li>
+            <li>SQL / MSSQL</li>
+            <li>Docker</li>
+            <li>Cloudflare Pages</li>
+            <li>GitLab CI/CD</li>
+            <li>Playwright</li>
+            <li>pytest</li>
+            <li>Git</li>
+            <li>uv</li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <section id="certificates" class="section reveal">
+    <section id="certificates" class="section reveal" tabindex="-1">
       <div class="section-head">
-        <p class="eyebrow">Sertifikalar</p>
-        <h2>Öğrenme Yolculuğum</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">04 // Sertifikalar</p>
+          <h2>Öğrenme Yolculuğum</h2>
+        </div>
       </div>
       <ul class="certificate-list">
         <li><span>2026</span>Artificial Intelligence Specialization Program - Foundation Training Certificate (Republic of Türkiye Ministry of Industry and Technology)</li>
@@ -367,48 +579,70 @@
       </ul>
     </section>
 
-    <section id="contact" class="section contact reveal">
+    <section id="contact" class="section contact reveal" tabindex="-1">
       <div class="section-head">
-        <p class="eyebrow">İletişim</p>
-        <h2>Yeni Projeler ve İş Birlikleri İçin İletişime Geçin</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">05 // İletişim</p>
+          <h2>Yeni Projeler ve İş Birlikleri İçin İletişime Geçin</h2>
+        </div>
       </div>
       <div class="contact-grid">
-        <a class="contact-item" href="mailto:eminblmk@gmail.com">
-          <span>E-posta</span>
-          <strong>eminblmk@gmail.com</strong>
-        </a>
-        <a class="contact-item" href="#contact">
-          <span>Telefon</span>
-          <strong>[removed]</strong>
-        </a>
+        <div class="contact-item">
+          <a class="contact-item-body contact-item-link" href="mailto:eminblmk@gmail.com">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>E-posta</span>
+            <strong>eminblmk@gmail.com</strong>
+          </a>
+          <button class="copy-btn" type="button" data-copy="eminblmk@gmail.com" aria-label="E-posta adresini kopyala">Kopyala</button>
+        </div>
         <a class="contact-item" href="https://github.com/eminbalmuk" target="_blank" rel="noopener noreferrer">
-          <span>GitHub</span>
-          <strong>github.com/eminbalmuk</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</span>
+            <strong>github.com/eminbalmuk</strong>
+          </div>
         </a>
         <a class="contact-item" href="https://www.linkedin.com/in/eminbalmuk/" target="_blank" rel="noopener noreferrer">
-          <span>LinkedIn</span>
-          <strong>linkedin.com/in/eminbalmuk</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</span>
+            <strong>linkedin.com/in/eminbalmuk</strong>
+          </div>
         </a>
         <div class="contact-item">
-          <span>Konum</span>
-          <strong>Istanbul / Maltepe</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Konum</span>
+            <strong>İstanbul / Maltepe</strong>
+          </div>
         </div>
         <div class="contact-item">
-          <span>Diller</span>
-          <strong>Türkçe (Anadil), İngilizce (B2), Almanca (A2-B1)</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Diller</span>
+            <strong>Türkçe (Anadil), İngilizce (B2), Almanca (A2-B1)</strong>
+          </div>
         </div>
         <a class="contact-item" href="https://eminbalmuk.github.io" target="_blank" rel="noopener noreferrer">
-          <span>Web Sitesi</span>
-          <strong>eminbalmuk.github.io</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Web Sitesi</span>
+            <strong>eminbalmuk.github.io</strong>
+          </div>
         </a>
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <p>&copy; 2026 Muhammet Emin Balmuk. Tüm hakları saklıdır.</p>
+    <ul class="footer-links">
+      <li><a href="about-tr.html">Hakkımda</a></li>
+      <li><a href="interests-tr.html">İlgi Alanları</a></li>
+      <li><a href="contact-tr.html">İletişim</a></li>
+    </ul>
   </footer>
-  <button class="to-top" type="button" aria-label="Sayfanın başına dön">Yukarı</button>
-  <script src="scripts/language.js?v=20261109-1" defer></script>
-  <script src="scripts/main.js?v=20261109-1" defer></script>
+
+  <button class="to-top" type="button" aria-label="Sayfanın başına dön">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    <span>Yukarı</span>
+  </button>
+
+  <script src="scripts/language.js?v=20261115-2" defer></script>
+  <script src="scripts/main.js?v=20261115-2" defer></script>
 </body>
 </html>

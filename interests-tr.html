@@ -3,40 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    document.documentElement.classList.add("js-ready");
+    try {
+      var s = localStorage.getItem("color-scheme");
+      if (s === "light" || s === "dark") {
+        document.querySelector('meta[name="color-scheme"]').content = s;
+      }
+    } catch (_e) {}
+  </script>
   <meta name="description" content="Muhammet Emin Balmuk'un teknik ilgi alanları ve öğrenme yol haritası.">
   <title>İlgi Alanları | Muhammet Emin Balmuk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css?v=20261109-1">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css?v=20261115-2">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="page-bg" aria-hidden="true"></div>
+  <canvas class="bg-canvas" aria-hidden="true"></canvas>
+  <a class="skip-link visually-hidden" href="#main-content">Ana içeriğe atla</a>
+  <div id="live-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
   <header class="site-header">
-    <a class="brand" href="index-tr.html" aria-label="Ana Sayfa">
-      <span class="brand-avatar" aria-hidden="true">
-        <img src="images/profil.jpeg" alt="Muhammet Emin Balmuk">
-      </span>
-      <span class="brand-name">Muhammet Emin Balmuk</span>
-    </a>
-    <button class="nav-toggle" type="button" aria-label="Menüyü aç-kapat" aria-expanded="false" aria-controls="site-nav">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="site-nav" id="site-nav" aria-label="Ana Navigasyon">
-      <a href="index-tr.html">Ana Sayfa</a>
-      <a href="about-tr.html">Hakkımda</a>
-      <a href="index-tr.html#projects">Projeler</a>
-      <a class="active" href="interests-tr.html">İlgi Alanları</a>
-      <a href="contact-tr.html">İletişim</a>
-    </nav>
-    <button class="lang-toggle" type="button" aria-label="Dili değiştir" title="Dili değiştir"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">TR</span></button>
+    <div class="header-inner">
+      <a class="brand" href="index-tr.html" aria-label="Muhammet Emin Balmuk Ana Sayfa">
+        <span class="brand-avatar" aria-hidden="true">
+          <img src="images/profil.jpeg" alt="" width="40" height="40">
+        </span>
+        <span class="brand-name">Muhammet Emin Balmuk</span>
+      </a>
+      <nav class="site-nav" aria-label="Birincil">
+        <button class="menu-button" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <span>Menü</span>
+        </button>
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="index-tr.html">Ana Sayfa</a></li>
+          <li><a href="about-tr.html">Hakkımda</a></li>
+          <li><a href="index-tr.html#experience">Deneyim</a></li>
+          <li><a href="index-tr.html#projects">Projeler</a></li>
+          <li><a href="interests-tr.html" aria-current="page">İlgi Alanları</a></li>
+          <li><a href="contact-tr.html">İletişim</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Koyu temaya geç" title="Koyu temaya geç">
+          <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+          </svg>
+        </button>
+        <button class="lang-toggle" type="button" aria-label="Dili değiştir" title="Dili değiştir"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">TR</span></button>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="hero reveal">
-      <p class="eyebrow">İlgi Alanları</p>
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>İlgi Alanları</p>
       <h1>Teknik Olarak Derinleştiğim Yönler</h1>
       <p class="lead">
         İlgi alanlarım, veri, makine öğrenmesi ve yazılım mühendisliğinin birlikte çalıştığı pratik sistemler
@@ -45,18 +77,22 @@
       </p>
       <ul class="quick-stats">
         <li>
+          <span class="stat-index">01 // ODAK</span>
           <strong>En Çok Üretmek İstediğim Sistemler</strong>
           <span>Veri odaklı karar sistemleri ve AI destekli, gerçek ihtiyaca dokunan ürünler.</span>
         </li>
         <li>
+          <span class="stat-index">02 // UYGULAMA</span>
           <strong>Uygulamada Odaklandığım Alanlar</strong>
           <span>Tahminleme, bilgisayarlı görü senaryoları ve gerçek zamanlı olay akışları.</span>
         </li>
         <li>
+          <span class="stat-index">03 // YAKLAŞIM</span>
           <strong>Projelerde Çalışma Şeklim</strong>
           <span>Analiz ve modellemeden entegrasyon ve izlemeye uzanan uçtan uca teslim yaklaşımını tercih ederim.</span>
         </li>
         <li>
+          <span class="stat-index">04 // GELİŞİM</span>
           <strong>Kendimi Geliştirme Yöntemim</strong>
           <span>Yapılandırılmış eğitimler, yarışma deneyimleri ve sürekli iyileştirilen kişisel projeler.</span>
         </li>
@@ -65,31 +101,39 @@
 
     <section class="section reveal">
       <div class="section-head">
-        <p class="eyebrow">Çekirdek Alanlar</p>
-        <h2>Aktif Olarak Geliştirdiğim Konular</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">01 // Çekirdek Alanlar</p>
+          <h2>Aktif Olarak Geliştirdiğim Konular</h2>
+        </div>
       </div>
       <div class="project-grid">
         <article class="project-card">
+          <p class="project-meta">Alan 01</p>
           <h3>Uygulamalı Veri Bilimi</h3>
           <p>Karmaşık veri setlerinde örüntü bulup analizi somut önerilere dönüştürmekten keyif alıyorum.</p>
         </article>
         <article class="project-card">
+          <p class="project-meta">Alan 02</p>
           <h3>Makine Öğrenmesi Sistemleri</h3>
           <p>Özellik mühendisliği, doğrulama disiplini ve uygulama adımını birlikte düşünen ML akışlarına odaklanıyorum.</p>
         </article>
         <article class="project-card">
+          <p class="project-meta">Alan 03</p>
           <h3>Kantitatif İşlem Mantığı</h3>
           <p>Finansal zaman serilerinde strateji araştırması, sinyal kalitesi ve otomasyon altyapıları ilgimi çekiyor.</p>
         </article>
         <article class="project-card">
+          <p class="project-meta">Alan 04</p>
           <h3>Güvenlik Odaklı Bilgisayarlı Görü</h3>
           <p>Gerçek zamanlı çıkarım ve güvenilir algılama gerektiren görüntü tabanlı tespit senaryoları üzerinde çalışıyorum.</p>
         </article>
         <article class="project-card">
+          <p class="project-meta">Alan 05</p>
           <h3>Gerçek Zamanlı Uygulama Tasarımı</h3>
           <p>Düşük gecikmeli iletişim ve sürekli durum takibi gerektiren event odaklı sistemleri inceliyorum.</p>
         </article>
         <article class="project-card">
+          <p class="project-meta">Alan 06</p>
           <h3>Ürün ve İş Odaklı Mühendislik</h3>
           <p>Teknik kaliteyi kullanıcı ihtiyacı ve iş kısıtlarıyla birlikte ele alan ürün yaklaşımını önemsiyorum.</p>
         </article>
@@ -98,10 +142,13 @@
 
     <section class="section reveal">
       <div class="section-head">
-        <p class="eyebrow">Rutin</p>
-        <h2>Öğrenme Sürecimi Nasıl Sürdürüyorum</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">02 // Rutin</p>
+          <h2>Öğrenme Sürecimi Nasıl Sürdürüyorum</h2>
+        </div>
       </div>
       <div class="timeline">
+        <div class="timeline-progress" aria-hidden="true"></div>
         <article class="role-card">
           <p class="timeline-date">Günlük</p>
           <h3>Uygulamalı Geliştirme</h3>
@@ -122,8 +169,10 @@
 
     <section class="section reveal">
       <div class="section-head">
-        <p class="eyebrow">Yol Haritası</p>
-        <h2>Kısa Vadeli Teknik Keşif Planı</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">03 // Yol Haritası</p>
+          <h2>Kısa Vadeli Teknik Keşif Planı</h2>
+        </div>
       </div>
       <div class="focus-grid">
         <article>
@@ -148,12 +197,19 @@
 
   <footer class="site-footer">
     <p>&copy; 2026 Muhammet Emin Balmuk. Tüm hakları saklıdır.</p>
+    <ul class="footer-links">
+      <li><a href="index-tr.html">Ana Sayfa</a></li>
+      <li><a href="about-tr.html">Hakkımda</a></li>
+      <li><a href="contact-tr.html">İletişim</a></li>
+    </ul>
   </footer>
 
-  <button class="to-top" type="button" aria-label="Sayfanın başına dön">Yukarı</button>
+  <button class="to-top" type="button" aria-label="Sayfanın başına dön">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    <span>Yukarı</span>
+  </button>
 
-  <script src="scripts/language.js?v=20261109-1" defer></script>
-  <script src="scripts/main.js?v=20261109-1" defer></script>
+  <script src="scripts/language.js?v=20261115-2" defer></script>
+  <script src="scripts/main.js?v=20261115-2" defer></script>
 </body>
 </html>
-

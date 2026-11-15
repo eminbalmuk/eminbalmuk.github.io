@@ -1,0 +1,10 @@
+# Local-only CV files (kept locally, excluded from public GitHub repo)
+emin_balmuk_cv_eng.pdf
+emin_balmuk_cv_eng.tex
+*.tex
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz

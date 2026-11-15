@@ -3,40 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    document.documentElement.classList.add("js-ready");
+    try {
+      var s = localStorage.getItem("color-scheme");
+      if (s === "light" || s === "dark") {
+        document.querySelector('meta[name="color-scheme"]').content = s;
+      }
+    } catch (_e) {}
+  </script>
   <meta name="description" content="Muhammet Emin Balmuk ile veri bilimi, yapay zeka ve analitik odaklı iş birliği için iletişime geçin.">
   <title>İletişim | Muhammet Emin Balmuk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css?v=20261109-1">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css?v=20261115-2">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="page-bg" aria-hidden="true"></div>
+  <canvas class="bg-canvas" aria-hidden="true"></canvas>
+  <a class="skip-link visually-hidden" href="#main-content">Ana içeriğe atla</a>
+  <div id="live-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
   <header class="site-header">
-    <a class="brand" href="index-tr.html" aria-label="Ana Sayfa">
-      <span class="brand-avatar" aria-hidden="true">
-        <img src="images/profil.jpeg" alt="Muhammet Emin Balmuk">
-      </span>
-      <span class="brand-name">Muhammet Emin Balmuk</span>
-    </a>
-    <button class="nav-toggle" type="button" aria-label="Menüyü aç-kapat" aria-expanded="false" aria-controls="site-nav">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="site-nav" id="site-nav" aria-label="Ana Navigasyon">
-      <a href="index-tr.html">Ana Sayfa</a>
-      <a href="about-tr.html">Hakkımda</a>
-      <a href="index-tr.html#experience">Deneyim</a>
-      <a href="index-tr.html#projects">Projeler</a>
-      <a class="active" href="contact-tr.html">İletişim</a>
-    </nav>
-    <button class="lang-toggle" type="button" aria-label="Dili değiştir" title="Dili değiştir"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">TR</span></button>
+    <div class="header-inner">
+      <a class="brand" href="index-tr.html" aria-label="Muhammet Emin Balmuk Ana Sayfa">
+        <span class="brand-avatar" aria-hidden="true">
+          <img src="images/profil.jpeg" alt="" width="40" height="40">
+        </span>
+        <span class="brand-name">Muhammet Emin Balmuk</span>
+      </a>
+      <nav class="site-nav" aria-label="Birincil">
+        <button class="menu-button" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <span>Menü</span>
+        </button>
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="index-tr.html">Ana Sayfa</a></li>
+          <li><a href="about-tr.html">Hakkımda</a></li>
+          <li><a href="index-tr.html#experience">Deneyim</a></li>
+          <li><a href="index-tr.html#projects">Projeler</a></li>
+          <li><a href="interests-tr.html">İlgi Alanları</a></li>
+          <li><a href="contact-tr.html" aria-current="page">İletişim</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Koyu temaya geç" title="Koyu temaya geç">
+          <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+          </svg>
+        </button>
+        <button class="lang-toggle" type="button" aria-label="Dili değiştir" title="Dili değiştir"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">TR</span></button>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="hero about-hero reveal">
-      <p class="eyebrow">İletişim</p>
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>İletişim</p>
       <h1>Staj ve Proje İş Birliklerine Açığım</h1>
       <p class="lead">
         Veri bilimi, yapay zeka mühendisliği ve analitik odaklı staj, junior seviye ve proje bazlı
@@ -45,18 +77,22 @@
       </p>
       <ul class="quick-stats">
         <li>
+          <span class="stat-index">01 // YANIT</span>
           <strong>Hızlı İletişim</strong>
           <span>Uygun iş birliği mesajlarına genellikle bir iş günü içinde yanıt veririm.</span>
         </li>
         <li>
+          <span class="stat-index">02 // MODEL</span>
           <strong>Esnek Çalışma Modeli</strong>
           <span>Uzaktan çalışmaya ve İstanbul merkezli hibrit fırsatlara açığım.</span>
         </li>
         <li>
+          <span class="stat-index">03 // ODAK</span>
           <strong>Teknik Odak</strong>
           <span>Veri bilimi akışları, ML destekli uygulamalar ve iş zekası raporlama süreçleri.</span>
         </li>
         <li>
+          <span class="stat-index">04 // DİL</span>
           <strong>Çok Dilli İletişim</strong>
           <span>İngilizce (B2), Türkçe (ana dil) ve Almanca (A2-B1) ile ekip içi iletişim.</span>
         </li>
@@ -65,44 +101,56 @@
 
     <section class="section contact reveal">
       <div class="section-head">
-        <p class="eyebrow">Kanallar</p>
-        <h2>Doğrudan İletişim Bilgileri</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">01 // Kanallar</p>
+          <h2>Doğrudan İletişim Bilgileri</h2>
+        </div>
       </div>
       <div class="contact-grid">
-        <a class="contact-item" href="mailto:eminblmk@gmail.com">
-          <span>E-posta</span>
-          <strong>eminblmk@gmail.com</strong>
-        </a>
-        <a class="contact-item" href="#contact">
-          <span>Telefon</span>
-          <strong>[removed]</strong>
-        </a>
+        <div class="contact-item">
+          <a class="contact-item-body contact-item-link" href="mailto:eminblmk@gmail.com">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>E-posta</span>
+            <strong>eminblmk@gmail.com</strong>
+          </a>
+          <button class="copy-btn" type="button" data-copy="eminblmk@gmail.com" aria-label="E-posta adresini kopyala">Kopyala</button>
+        </div>
         <a class="contact-item" href="https://github.com/eminbalmuk" target="_blank" rel="noopener noreferrer">
-          <span>GitHub</span>
-          <strong>github.com/eminbalmuk</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</span>
+            <strong>github.com/eminbalmuk</strong>
+          </div>
         </a>
         <a class="contact-item" href="https://www.linkedin.com/in/eminbalmuk/" target="_blank" rel="noopener noreferrer">
-          <span>LinkedIn</span>
-          <strong>linkedin.com/in/eminbalmuk</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</span>
+            <strong>linkedin.com/in/eminbalmuk</strong>
+          </div>
         </a>
         <div class="contact-item">
-          <span>Konum</span>
-          <strong>Istanbul / Maltepe</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Konum</span>
+            <strong>İstanbul / Maltepe</strong>
+          </div>
         </div>
         <a class="contact-item" href="https://eminbalmuk.github.io" target="_blank" rel="noopener noreferrer">
-          <span>Web Sitesi</span>
-          <strong>eminbalmuk.github.io</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Web Sitesi</span>
+            <strong>eminbalmuk.github.io</strong>
+          </div>
         </a>
       </div>
     </section>
 
     <section class="section reveal">
       <div class="section-head">
-        <p class="eyebrow">İş Birliği</p>
-        <h2>Katkı Sunabileceğim Alanlar</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">02 // İş Birliği</p>
+          <h2>Katkı Sunabileceğim Alanlar</h2>
+        </div>
       </div>
       <div class="project-grid">
         <article class="project-card">
+          <p class="project-meta">Alan 01</p>
           <h3>Veri Bilimi ve Tahminleme</h3>
           <p>Veri analizi ve tahminleme ihtiyaçlarında keşiften model değerlendirmesine kadar destek sunabilirim.</p>
           <ul>
@@ -111,6 +159,7 @@
           </ul>
         </article>
         <article class="project-card">
+          <p class="project-meta">Alan 02</p>
           <h3>AI Destekli Ürün Prototipleri</h3>
           <p>Model davranışı ve kullanıcı değerinin erken aşamada hizalandığı MVP ürünlerde aktif rol alırım.</p>
           <ul>
@@ -119,6 +168,7 @@
           </ul>
         </article>
         <article class="project-card">
+          <p class="project-meta">Alan 03</p>
           <h3>İş Zekası ve Analitik Çıktılar</h3>
           <p>Teknik bulguların aksiyona dönüştüğü iş odaklı analitik çıktıların üretilmesine katkı sunarım.</p>
           <ul>
@@ -127,6 +177,7 @@
           </ul>
         </article>
         <article class="project-card">
+          <p class="project-meta">Alan 04</p>
           <h3>Backend ve Gerçek Zamanlı Bileşenler</h3>
           <p>Veri yoğun uygulamalarda backend modülleri ve gerçek zamanlı entegrasyonları destekleyebilirim.</p>
           <ul>
@@ -139,10 +190,13 @@
 
     <section class="section reveal">
       <div class="section-head">
-        <p class="eyebrow">Sık Sorulanlar</p>
-        <h2>İş Birliği Öncesi Kısa Bilgiler</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">03 // Sık Sorulanlar</p>
+          <h2>İş Birliği Öncesi Kısa Bilgiler</h2>
+        </div>
       </div>
       <div class="timeline">
+        <div class="timeline-progress" aria-hidden="true"></div>
         <article class="role-card">
           <p class="timeline-date">Kapsam</p>
           <h3>Hangi proje tipleri daha uygun?</h3>
@@ -169,13 +223,19 @@
 
   <footer class="site-footer">
     <p>&copy; 2026 Muhammet Emin Balmuk. Tüm hakları saklıdır.</p>
+    <ul class="footer-links">
+      <li><a href="index-tr.html">Ana Sayfa</a></li>
+      <li><a href="about-tr.html">Hakkımda</a></li>
+      <li><a href="interests-tr.html">İlgi Alanları</a></li>
+    </ul>
   </footer>
 
-  <button class="to-top" type="button" aria-label="Sayfanın başına dön">Yukarı</button>
+  <button class="to-top" type="button" aria-label="Sayfanın başına dön">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    <span>Yukarı</span>
+  </button>
 
-  <script src="scripts/language.js?v=20261109-1" defer></script>
-  <script src="scripts/main.js?v=20261109-1" defer></script>
+  <script src="scripts/language.js?v=20261115-2" defer></script>
+  <script src="scripts/main.js?v=20261115-2" defer></script>
 </body>
 </html>
-
-

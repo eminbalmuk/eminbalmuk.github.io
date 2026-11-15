@@ -3,40 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    document.documentElement.classList.add("js-ready");
+    try {
+      var s = localStorage.getItem("color-scheme");
+      if (s === "light" || s === "dark") {
+        document.querySelector('meta[name="color-scheme"]').content = s;
+      }
+    } catch (_e) {}
+  </script>
   <meta name="description" content="Technical interests and learning roadmap of Muhammet Emin Balmuk.">
   <title>Interests | Muhammet Emin Balmuk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css?v=20261109-1">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css?v=20261115-2">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="page-bg" aria-hidden="true"></div>
+  <canvas class="bg-canvas" aria-hidden="true"></canvas>
+  <a class="skip-link visually-hidden" href="#main-content">Skip to main content</a>
+  <div id="live-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Home">
-      <span class="brand-avatar" aria-hidden="true">
-        <img src="images/profil.jpeg" alt="Muhammet Emin Balmuk">
-      </span>
-      <span class="brand-name">Muhammet Emin Balmuk</span>
-    </a>
-    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="index.html#projects">Projects</a>
-      <a class="active" href="interests.html">Interests</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button class="lang-toggle" type="button" aria-label="Switch language" title="Switch language"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">EN</span></button>
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Muhammet Emin Balmuk Home">
+        <span class="brand-avatar" aria-hidden="true">
+          <img src="images/profil.jpeg" alt="" width="40" height="40">
+        </span>
+        <span class="brand-name">Muhammet Emin Balmuk</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button class="menu-button" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <span>Menu</span>
+        </button>
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="interests.html" aria-current="page">Interests</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme">
+          <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+          </svg>
+        </button>
+        <button class="lang-toggle" type="button" aria-label="Switch language" title="Switch language"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">EN</span></button>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="hero reveal">
-      <p class="eyebrow">Interests</p>
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Interests</p>
       <h1>Technical Directions I Build Around</h1>
       <p class="lead">
         I enjoy building practical systems where data, machine learning, and software engineering work
@@ -45,18 +77,22 @@
       </p>
       <ul class="quick-stats">
         <li>
+          <span class="stat-index">01 // FOCUS</span>
           <strong>What I Like Building Most</strong>
           <span>Data-driven decision systems and AI-powered products with clear real-world value.</span>
         </li>
         <li>
+          <span class="stat-index">02 // APPLIED</span>
           <strong>Applied Focus Areas</strong>
           <span>Predictive modeling, computer vision use cases, and real-time event pipelines.</span>
         </li>
         <li>
+          <span class="stat-index">03 // PROCESS</span>
           <strong>How I Approach Projects</strong>
           <span>I prefer end-to-end delivery from analysis and modeling to integration and monitoring.</span>
         </li>
         <li>
+          <span class="stat-index">04 // GROWTH</span>
           <strong>How I Keep Improving</strong>
           <span>I learn through structured courses, hands-on competitions, and iterative personal builds.</span>
         </li>
@@ -65,31 +101,39 @@
 
     <section class="section reveal">
       <div class="section-head">
-        <p class="eyebrow">Core Areas</p>
-        <h2>What I Actively Explore</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">01 // Core Areas</p>
+          <h2>What I Actively Explore</h2>
+        </div>
       </div>
       <div class="project-grid">
         <article class="project-card">
+          <p class="project-meta">Domain 01</p>
           <h3>Applied Data Science</h3>
           <p>I enjoy uncovering structure in noisy data and translating analysis into concrete recommendations.</p>
         </article>
         <article class="project-card">
+          <p class="project-meta">Domain 02</p>
           <h3>Machine Learning Systems</h3>
           <p>I work on model workflows that include feature design, validation discipline, and practical deployment paths.</p>
         </article>
         <article class="project-card">
+          <p class="project-meta">Domain 03</p>
           <h3>Quantitative Trading Logic</h3>
           <p>I enjoy strategy research, signal quality analysis, and automation pipelines for financial time series.</p>
         </article>
         <article class="project-card">
+          <p class="project-meta">Domain 04</p>
           <h3>Computer Vision for Safety</h3>
           <p>I work on vision-based detection scenarios where real-time inference and reliability matter.</p>
         </article>
         <article class="project-card">
+          <p class="project-meta">Domain 05</p>
           <h3>Real-Time Application Design</h3>
           <p>I explore event-driven systems that require low-latency communication and continuous state tracking.</p>
         </article>
         <article class="project-card">
+          <p class="project-meta">Domain 06</p>
           <h3>Cross-Functional Product Thinking</h3>
           <p>I value building products where technical quality aligns with user needs and business constraints.</p>
         </article>
@@ -98,10 +142,13 @@
 
     <section class="section reveal">
       <div class="section-head">
-        <p class="eyebrow">Routine</p>
-        <h2>How I Keep Learning</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">02 // Routine</p>
+          <h2>How I Keep Learning</h2>
+        </div>
       </div>
       <div class="timeline">
+        <div class="timeline-progress" aria-hidden="true"></div>
         <article class="role-card">
           <p class="timeline-date">Daily</p>
           <h3>Hands-On Implementation</h3>
@@ -122,8 +169,10 @@
 
     <section class="section reveal">
       <div class="section-head">
-        <p class="eyebrow">Roadmap</p>
-        <h2>Near-Term Exploration Plan</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">03 // Roadmap</p>
+          <h2>Near-Term Exploration Plan</h2>
+        </div>
       </div>
       <div class="focus-grid">
         <article>
@@ -148,12 +197,19 @@
 
   <footer class="site-footer">
     <p>&copy; 2026 Muhammet Emin Balmuk. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </footer>
 
-  <button class="to-top" type="button" aria-label="Back to top">Top</button>
+  <button class="to-top" type="button" aria-label="Back to top">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    <span>Top</span>
+  </button>
 
-  <script src="scripts/language.js?v=20261109-1" defer></script>
-  <script src="scripts/main.js?v=20261109-1" defer></script>
+  <script src="scripts/language.js?v=20261115-2" defer></script>
+  <script src="scripts/main.js?v=20261115-2" defer></script>
 </body>
 </html>
-

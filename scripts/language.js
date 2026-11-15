@@ -17,7 +17,7 @@
     tr: {
       flag: "./images/flag-tr.svg",
       code: "TR",
-      aria: "Dili Ingilizceye cevir"
+      aria: "Dili İngilizceye çevir"
     }
   };
 

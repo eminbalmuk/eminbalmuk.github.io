@@ -3,101 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Muhammet Emin Balmuk - Computer Engineering student, Co-founder & CTO of Giyiver, AI Engineering Intern at Orion Innovation.">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    document.documentElement.classList.add("js-ready");
+    try {
+      var s = localStorage.getItem("color-scheme");
+      if (s === "light" || s === "dark") {
+        document.querySelector('meta[name="color-scheme"]').content = s;
+      }
+    } catch (_e) {}
+  </script>
+  <meta name="description" content="Muhammet Emin Balmuk - Computer Engineering student and AI Engineering Intern at Orion Innovation, building LLM, retrieval, vision-language and speech AI systems.">
   <title>Muhammet Emin Balmuk | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css?v=20261109-1">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css?v=20261115-2">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="page-bg" aria-hidden="true"></div>
+  <canvas class="bg-canvas" aria-hidden="true"></canvas>
+  <a class="skip-link visually-hidden" href="#main-content">Skip to main content</a>
+  <div id="live-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Home">
-      <span class="brand-avatar" aria-hidden="true">
-        <img src="images/profil.jpeg" alt="Muhammet Emin Balmuk">
-      </span>
-      <span class="brand-name">Muhammet Emin Balmuk</span>
-    </a>
-    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
-      <a class="active" href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="lang-toggle" type="button" aria-label="Switch language" title="Switch language"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">EN</span></button>
-  </header>
-  <main>
-    <section class="hero reveal">
-      <p class="eyebrow">Computer Engineering Student | AI Engineering</p>
-      <h1>Muhammet Emin Balmuk</h1>
-      <p class="lead">
-        I'm a Computer Engineering student at Marmara University, Co-founder &amp; CTO of Giyiver (a clothing-swap
-        startup backed by investment received through Shell ILERIDE) and an AI Engineering Intern at Orion Innovation,
-        where I build LLM, vision-language, retrieval and speech AI systems. I enjoy turning models into reliable,
-        measurable products.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#projects">View Projects</a>
-        <a class="btn btn-ghost" href="about.html">About Me</a>
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Muhammet Emin Balmuk Home">
+        <span class="brand-avatar" aria-hidden="true">
+          <img src="images/profil.jpeg" alt="" width="40" height="40">
+        </span>
+        <span class="brand-name">Muhammet Emin Balmuk</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button class="menu-button" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <span>Menu</span>
+        </button>
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="interests.html">Interests</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme">
+          <svg class="icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+          </svg>
+        </button>
+        <button class="lang-toggle" type="button" aria-label="Switch language" title="Switch language"><span class="lang-flag" aria-hidden="true"></span><span class="lang-code">EN</span></button>
       </div>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="hero reveal">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>AI Engineering Intern @ Orion Innovation</p>
+          <h1>Muhammet Emin Balmuk</h1>
+          <p class="lead">
+            I'm a Computer Engineering student at Marmara University and an AI Engineering Intern at Orion Innovation,
+            where I build LLM, vision-language, retrieval and speech AI systems. Alongside my internship, I lead the
+            AI team at GDG Marmara and enjoy turning models into reliable, measurable products.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">
+              <span>View Projects</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a class="btn btn-ghost" href="about.html">About Me</a>
+            <a class="btn btn-ghost" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <aside class="hero-profile" aria-label="Profile overview">
+          <div class="hero-portrait-wrap">
+            <div class="hero-portrait">
+              <img src="images/profil.jpeg" alt="Muhammet Emin Balmuk" width="1695" height="2089" fetchpriority="high">
+            </div>
+            <div class="hero-identity">
+              <p class="hero-identity-label">Istanbul, TR</p>
+              <strong>M. Emin Balmuk</strong>
+              <span>Marmara University &middot; B.Sc. CE</span>
+            </div>
+          </div>
+          <ul class="hero-roles">
+            <li><span>Orion Innovation</span><strong>AI Engineering Intern</strong></li>
+            <li><span>GDG Marmara</span><strong>AI Team Lead</strong></li>
+            <li><span>Marmara University</span><strong>Computer Eng. B.Sc.</strong></li>
+          </ul>
+          <ul class="hero-focus-tags" aria-label="Core engineering focus">
+            <li>LLMs &amp; Agents</li>
+            <li>Hybrid RAG</li>
+            <li>Speech AI</li>
+            <li>VLMs</li>
+          </ul>
+        </aside>
+      </div>
+
       <ul class="quick-stats">
         <li>
-          <strong>Giyiver: Live Product</strong>
-          <span>Clothing-swap marketplace live at giyiverr.com, with investment received through Shell ILERIDE. I am responsible for the entire technical side in a team of 7.</span>
-        </li>
-        <li>
+          <span class="stat-index">01 // RETRIEVAL</span>
           <strong>Retrieval Benchmarks at Orion</strong>
           <span>Benchmarked 20+ LLMs and 10+ embedding models, reaching MRR 0.71 (requirement-to-test) and Hit@5 97.5% (test-to-code)</span>
         </li>
         <li>
+          <span class="stat-index">02 // AUDIO AI</span>
           <strong>Real-Time Speech AI</strong>
           <span>On-premise pipeline for live emergency calls: 6.3% WER on clean speech, 86% emotion accuracy, first words on screen in about 2 s</span>
         </li>
         <li>
+          <span class="stat-index">03 // LLM PIPELINES</span>
+          <strong>Latency &amp; Token Optimization</strong>
+          <span>Cut requirement-extraction calls per document from 95 to 9 (107 s &rarr; 3 s) and halved token usage on GENIUS</span>
+        </li>
+        <li>
+          <span class="stat-index">04 // BOOTCAMP</span>
           <strong>Bootcamp Top 3</strong>
           <span>Finished 3rd among 205 teams with our AI-integrated health application at Google AI &amp; Technology Academy</span>
         </li>
       </ul>
     </section>
-    <section id="experience" class="section reveal">
+
+    <section id="experience" class="section reveal" tabindex="-1">
       <div class="section-head">
-        <p class="eyebrow">Experience</p>
-        <h2>Startup, Industry, Academy, and Community</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">01 // Experience</p>
+          <h2>Industry, Startup, Academy, and Community</h2>
+        </div>
       </div>
       <div class="timeline">
+        <div class="timeline-progress" aria-hidden="true"></div>
         <article class="role-card">
           <div class="role-head">
-            <div class="role-logo-box">
-              <img src="images/giyiver.png" alt="Giyiver">
-            </div>
-            <div class="role-meta">
-              <p class="timeline-date">June 2026 - Present</p>
-              <h3>Giyiver</h3>
-              <p class="role-title">Co-founder &amp; CTO</p>
-            </div>
-          </div>
-          <p>
-            Turkish clothing-swap marketplace (barter, donation, points) live at <a href="https://giyiverr.com" target="_blank" rel="noopener noreferrer">giyiverr.com</a>. Backed by investment received through Shell ILERIDE. We are a team of 7, and I am responsible for the entire technical side of the project: web, mobile, backend, infrastructure, AI, security and testing.
-          </p>
-          <ul>
-            <li><strong>AI listing autofill:</strong> a vision-language model (NVIDIA NIM, <span class="metric">Nemotron 3.5 Super VL</span>) turns uploaded photos into title, category, colour, condition and description; images are downscaled client-side and sent as validated base64, so nothing is stored before publishing.</li>
-            <li><strong>Model selection and hedged inference:</strong> benchmarked candidate VLMs on real listing photos, dropped unreliable ones, disabled reasoning mode for <span class="metric">2-10 s</span> typical latency, and added a fallback model that races the primary after 12 s (first valid answer wins, the loser is cancelled).</li>
-            <li><strong>Multimodal moderation:</strong> one VLM call checks all photos and text of a listing (real clothing, same item in every photo, consistent description); free text also passes a local profanity filter and an AI check, built to fail open and backed by database triggers.</li>
-            <li><strong>Verified-image tokens:</strong> HMAC-signed, user-bound tokens carry SHA-256 digests of the analysed images; at publish time the server re-hashes the uploaded files and skips the second VLM call only if every digest matches, saving latency and cost without trusting the client.</li>
-            <li><strong>Platform:</strong> Next.js on Cloudflare Pages with edge functions, Supabase Postgres with row-level security (<span class="metric">57</span> migrations) and server-side points escrow, an Expo/React Native app, crawler-only rendering for SEO, and <span class="metric">570+</span> automated tests including SQL tests on a real Postgres engine.</li>
-          </ul>
-        </article>
-        <article class="role-card">
-          <div class="role-head">
-            <div class="role-logo-box">
-              <img src="images/orion.png" alt="Orion Innovation">
+            <div class="role-logo-box role-logo-box--wide">
+              <img src="images/orion.png" alt="Orion Innovation" width="800" height="480" loading="lazy">
             </div>
             <div class="role-meta">
               <p class="timeline-date">July 2026 - Present</p>
@@ -121,10 +174,34 @@
             <li>Evaluated models on public benchmarks: <span class="metric">6.3%</span> WER on clean speech, <span class="metric">86%</span> emotion accuracy (vs <span class="metric">41%</span> for the earlier approach), first words appear on screen in about <span class="metric">2 s</span>.</li>
           </ul>
         </article>
+
         <article class="role-card">
           <div class="role-head">
             <div class="role-logo-box">
-              <img src="images/gdg.png" alt="GDG Marmara">
+              <img src="images/giyiver.png" alt="Giyiver" width="512" height="512" loading="lazy">
+            </div>
+            <div class="role-meta">
+              <p class="timeline-date">June 2026 - Present</p>
+              <h3>Giyiver</h3>
+              <p class="role-title">Co-founder &amp; CTO</p>
+            </div>
+          </div>
+          <p>
+            Turkish clothing-swap marketplace (barter, donation, points) live at <a href="https://giyiverr.com" target="_blank" rel="noopener noreferrer">giyiverr.com</a>. Backed by investment received through Shell ILERIDE. We are a team of 7, and I am responsible for the entire technical side of the project: web, mobile, backend, infrastructure, AI, security and testing.
+          </p>
+          <ul>
+            <li><strong>AI listing autofill:</strong> a vision-language model (NVIDIA NIM, <span class="metric">Nemotron 3.5 Super VL</span>) turns uploaded photos into title, category, colour, condition and description; images are downscaled client-side and sent as validated base64, so nothing is stored before publishing.</li>
+            <li><strong>Model selection and hedged inference:</strong> benchmarked candidate VLMs on real listing photos, dropped unreliable ones, disabled reasoning mode for <span class="metric">2-10 s</span> typical latency, and added a fallback model that races the primary after 12 s (first valid answer wins, the loser is cancelled).</li>
+            <li><strong>Multimodal moderation:</strong> one VLM call checks all photos and text of a listing (real clothing, same item in every photo, consistent description); free text also passes a local profanity filter and an AI check, built to fail open and backed by database triggers.</li>
+            <li><strong>Verified-image tokens:</strong> HMAC-signed, user-bound tokens carry SHA-256 digests of the analysed images; at publish time the server re-hashes the uploaded files and skips the second VLM call only if every digest matches, saving latency and cost without trusting the client.</li>
+            <li><strong>Platform:</strong> Next.js on Cloudflare Pages with edge functions, Supabase Postgres with row-level security (<span class="metric">57</span> migrations) and server-side points escrow, an Expo/React Native app, crawler-only rendering for SEO, and <span class="metric">570+</span> automated tests including SQL tests on a real Postgres engine.</li>
+          </ul>
+        </article>
+
+        <article class="role-card">
+          <div class="role-head">
+            <div class="role-logo-box">
+              <img src="images/gdg.png" alt="GDG Marmara" width="2160" height="2160" loading="lazy">
             </div>
             <div class="role-meta">
               <p class="timeline-date">January 2026 - Present</p>
@@ -138,10 +215,11 @@
             <li>Help turn ideas into buildable projects while building coordination, ownership and community skills.</li>
           </ul>
         </article>
+
         <article class="role-card">
           <div class="role-head">
             <div class="role-logo-box">
-              <img src="images/shell.png" alt="Shell">
+              <img src="images/shell.png" alt="Shell" width="1900" height="1600" loading="lazy">
             </div>
             <div class="role-meta">
               <p class="timeline-date">February 2026 - June 2026</p>
@@ -155,10 +233,11 @@
             <li>Used what I learned in the program for Giyiver's product and technical decisions, and to explain technical work to non-technical people.</li>
           </ul>
         </article>
+
         <article class="role-card">
           <div class="role-head">
             <div class="role-logo-box">
-              <img src="images/yzta.png" alt="Google AI and Technology Academy">
+              <img src="images/yzta.png" alt="Google AI and Technology Academy" width="1438" height="1438" loading="lazy">
             </div>
             <div class="role-meta">
               <p class="timeline-date">December 2024 - August 2025</p>
@@ -175,15 +254,25 @@
         </article>
       </div>
     </section>
-    <section id="projects" class="section reveal">
+
+    <section id="projects" class="section reveal" tabindex="-1">
       <div class="section-head">
-        <p class="eyebrow">Portfolio</p>
-        <h2>Featured Projects</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">02 // Portfolio</p>
+          <h2>Featured Projects</h2>
+        </div>
+        <div class="filter-bar" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All (11)</button>
+          <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">AI &amp; ML (6)</button>
+          <button class="filter-btn" type="button" data-filter="fullstack" aria-pressed="false">Full-Stack (6)</button>
+          <button class="filter-btn" type="button" data-filter="systems" aria-pressed="false">Systems &amp; Data (4)</button>
+        </div>
       </div>
+      <p id="project-filter-status" class="visually-hidden" aria-live="polite"></p>
       <div class="project-grid">
-        <article class="project-card">
+        <article class="project-card" data-tags="ai systems">
+          <p class="project-meta">Personal Project &middot; 2026</p>
           <h3>Credit Card Fraud Detection System</h3>
-          <p>Personal Project | 2026</p>
           <ul>
             <li>Developed a production-ready machine learning pipeline for fraud detection using a dataset of <span class="metric">1.04M+ transactions</span>.</li>
             <li>Implemented <span class="metric">leakage-free feature engineering</span> using point-in-time calculations (velocity, behavioral patterns) to prevent future data leakage.</li>
@@ -191,11 +280,17 @@
             <li>Addressed extreme class imbalance (<span class="metric">0.58% fraud</span>) by prioritizing Precision-Recall AUC optimization to minimize false positives in a financial context.</li>
             <li>Built automated diagnostic tools for data distribution analysis and model performance visualization using Pandas, Matplotlib, and Seaborn.</li>
           </ul>
-          <a href="https://github.com/eminbalmuk/fraud-detection-ml" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          <div class="project-link">
+            <a href="https://github.com/eminbalmuk/fraud-detection-ml" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Repository</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="ai fullstack">
+          <p class="project-meta">Personal Project &middot; 2026</p>
           <h3>Unsolved: AI-Driven Problem Discovery Platform &amp; Automated Scraper</h3>
-          <p>Personal Project | 2026</p>
           <ul>
             <li>Built an automated research pipeline with <span class="metric">Next.js 16</span> and <span class="metric">TypeScript</span> that scrapes real-time customer signals from <span class="metric">Reddit API</span> and <span class="metric">App Store RSS</span> feeds to identify unaddressed needs and market gaps.</li>
             <li>Developed a heuristic scoring engine that analyzes raw text signals using <span class="metric">keyword-based NLP</span> and sentiment weights to quantify <span class="metric">Pain Intensity</span>, <span class="metric">Frequency</span>, and <span class="metric">Willingness to Pay (WTP)</span>.</li>
@@ -203,22 +298,34 @@
             <li>Added a persistence layer with <span class="metric">Prisma ORM</span> and <span class="metric">PostgreSQL</span>, featuring <span class="metric">upsert mechanisms</span> to maintain a synchronized &ldquo;Problem Store&rdquo; that tracks market trends and competitor gaps over time.</li>
             <li>Integrated an <span class="metric">AI Analysis Engine</span> that utilizes custom prompt versioning to generate structured product strategy reports, including MVP steps, solution ideas, and risk assessments based on ingested market signals.</li>
           </ul>
-          <a href="https://github.com/eminbalmuk/Unsolved-AI" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          <div class="project-link">
+            <a href="https://github.com/eminbalmuk/Unsolved-AI" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Repository</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="fullstack">
+          <p class="project-meta">Personal Project &middot; 2026</p>
           <h3>TaskFlow Collaborative Kanban Platform</h3>
-          <p>Personal Project | 2026</p>
           <ul>
             <li>Built a full-stack Kanban board application with <span class="metric">Next.js</span>, <span class="metric">React</span>, <span class="metric">TypeScript</span>, <span class="metric">Prisma</span>, and <span class="metric">PostgreSQL</span>, focused on practical team task management.</li>
             <li>Developed responsive dashboard and landing page flows, including drag-and-drop board interactions, due dates, multi-assignee task management, and mobile-friendly board navigation.</li>
             <li>Implemented <span class="metric">role-based collaboration</span> features such as board sharing, viewer/editor permissions, self-leave flows for invited users, and access-aware UI/route protection.</li>
             <li>Designed and maintained API routes, database schema migrations, and state management for real-time-feeling collaborative workflows across shared boards.</li>
           </ul>
-          <a href="https://github.com/eminbalmuk/taskflow-kanban" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          <div class="project-link">
+            <a href="https://github.com/eminbalmuk/taskflow-kanban" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Repository</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="ai systems">
+          <p class="project-meta">Personal Project &middot; 2025</p>
           <h3>Crypto Analysis and Trading Bot</h3>
-          <p>Personal Project | 2025</p>
           <ul>
             <li>Built a Python trading bot based on custom quantitative strategies.</li>
             <li>Designed an architecture that screens <span class="metric">200+ crypto assets</span> in about <span class="metric">2 minutes</span> and reached a <span class="metric">66% success rate</span> with a <span class="metric">1:2.5 risk-reward ratio</span> in a real-time Telegram signal system.</li>
@@ -227,47 +334,62 @@
             <li>Automated 24/7 trade lifecycle tracking through an additional &ldquo;Crypto Signal Tracker&rdquo; bot.</li>
           </ul>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="ai">
+          <p class="project-meta">Google AI &amp; Technology Academy &middot; 2025</p>
           <h3>Datathon Competition</h3>
-          <p>Google AI and Technology Academy | 2025</p>
           <ul>
             <li>Led the data analysis and visualization of a <span class="metric">210,000-row dataset</span> in a <span class="metric">4-person cross-functional team</span>.</li>
             <li>Built price prediction models for a new <span class="metric">56,000-row dataset</span> using LightGBM, Random Forest, and XGBoost.</li>
             <li>Interpreted model outputs and translated complex findings into actionable visual insights with Matplotlib and Seaborn.</li>
           </ul>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="ai fullstack">
+          <p class="project-meta">Bootcamp Project &middot; 2025</p>
           <h3>AI-Integrated Health Application</h3>
-          <p>Bootcamp Project | 2025</p>
           <ul>
             <li>Developed a mobile application with a <span class="metric">5-person team</span> for the preliminary assessment of cognitive conditions such as hyperactivity, dementia, and autism.</li>
             <li>Developed the Python backend and core Dart frontend components, leading the team to rank in the <span class="metric">top 3 among 205 competing teams</span>.</li>
             <li>Architected a voice pronunciation test module in Python, managed Firebase operations, and integrated systems through REST APIs.</li>
             <li>Optimized several Dart screens and fixed critical security vulnerabilities.</li>
           </ul>
-          <a href="https://github.com/BBBeyza/YZTA_YapayZeka_Grup-132" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          <div class="project-link">
+            <a href="https://github.com/BBBeyza/YZTA_YapayZeka_Grup-132" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Repository</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="ai">
+          <p class="project-meta">Computer Vision &middot; 2025</p>
           <h3>Fire Detection System for Live Security Cameras</h3>
-          <p>Computer Vision | 2025</p>
           <ul>
             <li>Trained a model on a dataset of <span class="metric">95,000 images</span> using YOLO 11.</li>
             <li>Reached <span class="metric">82.8%</span> smoke detection accuracy and <span class="metric">79.6%</span> fire detection accuracy, with especially strong results on black-and-white images.</li>
             <li>Tested the system on both live camera streams and recorded video footage, marking detected regions with bounding boxes.</li>
           </ul>
-          <a href="https://github.com/eminbalmuk/yolo-fire-and-smoke-detection" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          <div class="project-link">
+            <a href="https://github.com/eminbalmuk/yolo-fire-and-smoke-detection" target="_blank" rel="noopener noreferrer">
+              <span>GitHub Repository</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="fullstack">
+          <p class="project-meta">Team Project &middot; 2025</p>
           <h3>Real-Time Chat Application</h3>
-          <p>Team Project | 2025</p>
           <ul>
             <li>Built a real-time messaging application with a 3-person team using HTML, CSS (Tailwind), JavaScript, React, Node.js, MongoDB, and Socket.io.</li>
             <li>Managed Node.js backend tasks, real-time connection management with Socket.io, MongoDB workflows, and media storage with Cloudinary.</li>
           </ul>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="systems">
+          <p class="project-meta">Personal Project &middot; 2024</p>
           <h3>Automated Linux Backup System</h3>
-          <p>Personal Project | 2024</p>
           <ul>
             <li>Engineered a modular <span class="metric">Bash-based backup system</span> with support for both interactive TUI and fully automated headless execution modes.</li>
             <li>Integrated a dynamic terminal-based file explorer and user interface using the <span class="metric">dialog</span> library to enhance user experience.</li>
@@ -275,23 +397,166 @@
             <li>Implemented a centralized logging mechanism to provide end-to-end traceability and auditability of backup operations.</li>
           </ul>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="fullstack systems">
+          <p class="project-meta">Team Project &middot; 2024</p>
           <h3>Energy Distribution and Fault Response Simulation</h3>
-          <p>Team Project | 2024</p>
           <ul>
             <li>Built a city-scale energy fault simulation using Spring Boot and JavaScript to model real-time detection and response workflows for urban power outages.</li>
             <li>Designed the full JavaScript/HTML interface and supported backend integration for optimized outage-response workflows.</li>
           </ul>
         </article>
-        <article class="project-card">
+
+        <article class="project-card" data-tags="fullstack">
+          <p class="project-meta">Team Project &middot; 2024</p>
           <h3>Personal Series/Movie Watchlist Platform</h3>
-          <p>Team Project | 2024</p>
           <ul>
             <li>Developed a social watchlist application using Python (backend) and CustomTkinter (frontend) within a 3-person team.</li>
             <li>Engineered core backend features and designed the RESTful API layer to ensure seamless communication between system components.</li>
             <li>End-to-end feature development including personal watchlist management and social interaction modules.</li>
           </ul>
         </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section reveal" tabindex="-1">
+      <div class="section-head">
+        <div class="section-head-copy">
+          <p class="eyebrow">03 // Technical Skills</p>
+          <h2>Tools and Technologies</h2>
+        </div>
+      </div>
+      <div class="focus-grid">
+        <article>
+          <h3>Programming Languages</h3>
+          <ul class="skill-tags">
+            <li>Python</li>
+            <li>TypeScript</li>
+            <li>JavaScript</li>
+            <li>Java</li>
+            <li>C/C++</li>
+            <li>Dart</li>
+            <li>Bash</li>
+          </ul>
+        </article>
+        <article>
+          <h3>LLM Engineering</h3>
+          <ul class="skill-tags">
+            <li>LLM agents</li>
+            <li>LLM-as-a-judge</li>
+            <li>Structured output</li>
+            <li>Prompt engineering</li>
+            <li>Reasoning-effort control</li>
+            <li>Request batching</li>
+            <li>Multi-provider routing &amp; TPM scheduling</li>
+            <li>OpenRouter / NIM / Groq / AI Studio</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Retrieval and RAG</h3>
+          <ul class="skill-tags">
+            <li>Hybrid search (BM25 + dense)</li>
+            <li>Score fusion (RRF, DBSF)</li>
+            <li>GraphRAG</li>
+            <li>Listwise LLM reranking</li>
+            <li>Query expansion</li>
+            <li>sentence-transformers</li>
+            <li>Qdrant</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Multimodal and Vision</h3>
+          <ul class="skill-tags">
+            <li>Vision-language models (Nemotron VL)</li>
+            <li>Multimodal moderation</li>
+            <li>VLM benchmarking</li>
+            <li>Hedged fallback inference</li>
+            <li>YOLO object detection</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Speech and Audio</h3>
+          <ul class="skill-tags">
+            <li>Qwen3-ASR / Whisper</li>
+            <li>LoRA fine-tuning</li>
+            <li>Speaker diarization</li>
+            <li>Emotion recognition (wav2vec 2.0, emotion2vec)</li>
+            <li>Stress &amp; audio-event detection</li>
+            <li>Real-time streaming</li>
+            <li>On-premise CPU inference</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Machine Learning</h3>
+          <ul class="skill-tags">
+            <li>PyTorch</li>
+            <li>scikit-learn</li>
+            <li>LightGBM</li>
+            <li>XGBoost</li>
+            <li>CatBoost</li>
+            <li>TabNet</li>
+            <li>Keras</li>
+            <li>Pandas</li>
+            <li>NumPy</li>
+            <li>Matplotlib</li>
+            <li>Seaborn</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Model Evaluation</h3>
+          <ul class="skill-tags">
+            <li>Hand-labeled gold sets</li>
+            <li>MRR</li>
+            <li>Hit@k</li>
+            <li>Paired bootstrap CIs</li>
+            <li>WER</li>
+            <li>AUROC</li>
+            <li>PR-AUC</li>
+            <li>F1</li>
+            <li>Probability calibration</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Web and Mobile</h3>
+          <ul class="skill-tags">
+            <li>FastAPI</li>
+            <li>Next.js</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Expo / React Native</li>
+            <li>Spring Boot</li>
+            <li>REST</li>
+            <li>WebSocket</li>
+            <li>Socket.io</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Data and DevOps</h3>
+          <ul class="skill-tags">
+            <li>PostgreSQL</li>
+            <li>Supabase</li>
+            <li>MongoDB</li>
+            <li>Prisma</li>
+            <li>Firebase</li>
+            <li>SQL / MSSQL</li>
+            <li>Docker</li>
+            <li>Cloudflare Pages</li>
+            <li>GitLab CI/CD</li>
+            <li>Playwright</li>
+            <li>pytest</li>
+            <li>Git</li>
+            <li>uv</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="certificates" class="section reveal" tabindex="-1">
+      <div class="section-head">
+        <div class="section-head-copy">
+          <p class="eyebrow">04 // Certifications</p>
+          <h2>Learning Journey</h2>
+        </div>
       </div>
       <ul class="certificate-list">
         <li><span>2026</span>Artificial Intelligence Specialization Program - Foundation Training Certificate (Republic of Türkiye Ministry of Industry and Technology)</li>
@@ -312,92 +577,71 @@
         <li><span>2022</span>Deutsches Sprachdiplom 1 (Kultusministerkonferenz)</li>
       </ul>
     </section>
-    <section id="skills" class="section reveal">
+
+    <section id="contact" class="section contact reveal" tabindex="-1">
       <div class="section-head">
-        <p class="eyebrow">Technical Skills</p>
-        <h2>Tools and Technologies</h2>
-      </div>
-      <div class="focus-grid">
-        <article>
-          <h3>Programming Languages</h3>
-          <p>Python, TypeScript, JavaScript, Java, C/C++, Dart, Bash</p>
-        </article>
-        <article>
-          <h3>LLM Engineering</h3>
-          <p>LLM agents, LLM-as-a-judge, structured output, prompt engineering, reasoning-effort control, request batching, multi-provider routing and rate-limit scheduling (OpenRouter, NVIDIA NIM, Groq, Google AI Studio)</p>
-        </article>
-        <article>
-          <h3>Retrieval and RAG</h3>
-          <p>Hybrid search (BM25 + dense embeddings), score fusion (RRF, DBSF), GraphRAG, listwise LLM reranking, query expansion, sentence-transformers, Qdrant</p>
-        </article>
-        <article>
-          <h3>Multimodal and Vision</h3>
-          <p>Vision-language models (Nemotron VL), multimodal content moderation, VLM benchmarking and fallback inference, YOLO object detection</p>
-        </article>
-        <article>
-          <h3>Speech and Audio</h3>
-          <p>Speech recognition (Qwen3-ASR, Whisper), LoRA fine-tuning, speaker diarization, speech emotion recognition (wav2vec 2.0, emotion2vec), stress and audio-event detection, real-time streaming, on-premise CPU inference</p>
-        </article>
-        <article>
-          <h3>Machine Learning</h3>
-          <p>PyTorch, scikit-learn, LightGBM, XGBoost, CatBoost, TabNet, Keras, Pandas, NumPy, Matplotlib, Seaborn</p>
-        </article>
-        <article>
-          <h3>Model Evaluation</h3>
-          <p>Hand-labeled gold sets, MRR, Hit@k, paired bootstrap confidence intervals, WER, AUROC, PR-AUC, F1, probability calibration</p>
-        </article>
-        <article>
-          <h3>Web and Mobile</h3>
-          <p>FastAPI, Next.js, React, Node.js, Expo / React Native, Spring Boot, REST, WebSocket, Socket.io</p>
-        </article>
-        <article>
-          <h3>Data and DevOps</h3>
-          <p>PostgreSQL, Supabase, MongoDB, Prisma, Firebase, SQL / MSSQL, Docker, Cloudflare Pages, GitLab CI/CD, Playwright, pytest, Git, uv</p>
-        </article>
-      </div>
-    </section>
-    <section id="contact" class="section contact reveal">
-      <div class="section-head">
-        <p class="eyebrow">Contact</p>
-        <h2>Let's Connect for New Projects and Collaborations</h2>
+        <div class="section-head-copy">
+          <p class="eyebrow">05 // Contact</p>
+          <h2>Let's Connect for New Projects and Collaborations</h2>
+        </div>
       </div>
       <div class="contact-grid">
-        <a class="contact-item" href="mailto:eminblmk@gmail.com">
-          <span>Email</span>
-          <strong>eminblmk@gmail.com</strong>
-        </a>
-        <a class="contact-item" href="#contact">
-          <span>Phone</span>
-          <strong>[removed]</strong>
-        </a>
+        <div class="contact-item">
+          <a class="contact-item-body contact-item-link" href="mailto:eminblmk@gmail.com">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email</span>
+            <strong>eminblmk@gmail.com</strong>
+          </a>
+          <button class="copy-btn" type="button" data-copy="eminblmk@gmail.com" aria-label="Copy email address">Copy</button>
+        </div>
         <a class="contact-item" href="https://github.com/eminbalmuk" target="_blank" rel="noopener noreferrer">
-          <span>GitHub</span>
-          <strong>github.com/eminbalmuk</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</span>
+            <strong>github.com/eminbalmuk</strong>
+          </div>
         </a>
         <a class="contact-item" href="https://www.linkedin.com/in/eminbalmuk/" target="_blank" rel="noopener noreferrer">
-          <span>LinkedIn</span>
-          <strong>linkedin.com/in/eminbalmuk</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</span>
+            <strong>linkedin.com/in/eminbalmuk</strong>
+          </div>
         </a>
         <div class="contact-item">
-          <span>Location</span>
-          <strong>Istanbul / Maltepe</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Location</span>
+            <strong>Istanbul / Maltepe</strong>
+          </div>
         </div>
         <div class="contact-item">
-          <span>Languages</span>
-          <strong>Turkish (Native), English (B2), German (A2-B1)</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Languages</span>
+            <strong>Turkish (Native), English (B2), German (A2-B1)</strong>
+          </div>
         </div>
         <a class="contact-item" href="https://eminbalmuk.github.io" target="_blank" rel="noopener noreferrer">
-          <span>Website</span>
-          <strong>eminbalmuk.github.io</strong>
+          <div class="contact-item-body">
+            <span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Website</span>
+            <strong>eminbalmuk.github.io</strong>
+          </div>
         </a>
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <p>&copy; 2026 Muhammet Emin Balmuk. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="interests.html">Interests</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </footer>
-  <button class="to-top" type="button" aria-label="Back to top">Top</button>
-  <script src="scripts/language.js?v=20261109-1" defer></script>
-  <script src="scripts/main.js?v=20261109-1" defer></script>
+
+  <button class="to-top" type="button" aria-label="Back to top">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    <span>Top</span>
+  </button>
+
+  <script src="scripts/language.js?v=20261115-2" defer></script>
+  <script src="scripts/main.js?v=20261115-2" defer></script>
 </body>
 </html>
